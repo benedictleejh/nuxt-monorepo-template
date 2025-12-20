@@ -1,0 +1,26 @@
+{
+  "recommendations": [
+    // Linting Extensions
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "editorconfig.editorconfig",
+
+    // Nuxt Extensions
+    "nuxtr.nuxt-vscode-extentions",
+
+    // Auto close tags in Vue
+    "formulahendry.auto-close-tag",
+
+    // Sass Extensions
+    "somewhatstationery.some-sass",
+    "syler.sass-indented",
+
+    // CSS Extensions
+    "pucelle.vscode-css-navigation",
+    "vunguyentuan.vscode-css-variables",
+
+    // Testing Extension
+    "vitest.explorer",
+    "ms-playwright.playwright",
+  ]
+}

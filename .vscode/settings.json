@@ -1,0 +1,57 @@
+{
+  // Use ESLint for formatting files via autofixing lint errors where possible
+  // Normal format-on-save is disabled to avoid interfering with this
+  "editor.formatOnSave": false,
+  "eslint.options": {
+    "flags": [
+      "v10_config_lookup_from_file"
+    ]
+  },
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[pug]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[vue]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "pug",
+    "vue"
+  ],
+
+  // Use Stylelint to validate all stylesheets
+  "stylelint.validate": [
+    "vue",
+    "css",
+    "scss",
+    "sass",
+    "postcss"
+  ],
+
+  // Disable VSCode builtin linters to avoid double error reports
+  // See https://github.com/stylelint/vscode-stylelint?tab=readme-ov-file#disable-vs-codes-built-in-linters-optional
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "postcss.validate": false,
+
+  // Autocompletion for package.yaml
+  "yaml.schemas": {
+    "https://json.schemastore.org/package.json": "package.yaml"
+  }
+}

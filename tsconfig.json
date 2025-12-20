@@ -1,0 +1,6 @@
+{
+  "extends": "@nuxt-monorepo-template/tsconfig",
+  "include": [
+    "scripts"
+  ]
+}

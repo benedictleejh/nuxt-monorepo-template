@@ -1,0 +1,60 @@
+name: nuxt-monorepo-template
+private: true
+type: module
+
+engines:
+  node: '>= 24'
+
+devEngines:
+  packageManager:
+    name: pnpm
+    version: 10.24.0+sha512.01ff8ae71b4419903b65c60fb2dc9d34cf8bb6e06d03bde112ef38f7a34d6904c424ba66bea5cdcf12890230bf39f9580473140ed9c946fef328b6e5238a345a
+    onFail: download
+
+scripts:
+  prepare: husky
+
+  check:outdated: pnpm --recursive outdated --production; pnpm --recursive outdated --dev
+
+  clean: jiti scripts/clean.ts
+
+  # Task to create package.json for tools that need it
+  compile:packageManifest: jiti scripts/compile-package-manifest.ts
+
+  # Workaround for:
+  # - ESLint requiring a package.json
+  # - Vitest to load ESM modules, as it needs to see "type": "module" in package.json
+  # - Nuxt needing package.json to typecheck properly
+  pnpm:devPreinstall: pnpm compile:packageManifest
+
+  # Convenience tasks for running the same task in all packages
+  build: pnpm --recursive --aggregate-output build
+  dev: pnpm --recursive --aggregate-output dev
+
+  typecheck: pnpm --parallel --aggregate-output typecheck
+
+  test:unit:watch: pnpm --parallel --aggregate-output test:unit:watch
+  test:unit: pnpm --parallel --aggregate-output test
+  test:e2e:ui: pnpm --parallel --aggregate-output test
+  test:e2e: pnpm --parallel --aggregate-output test
+
+  lint: pnpm --parallel --aggregate-output lint
+  lint:es: pnpm --parallel --aggregate-output lint:es
+  lint:style: pnpm --parallel --aggregate-output lint:style
+  lint:fix: pnpm --parallel --aggregate-output lint:fix
+  lint:es:fix: pnpm --parallel --aggregate-output lint:es:fix
+  lint:style:fix: pnpm --parallel --aggregate-output lint:style:fix
+
+devDependencies:
+  '@nuxt-monorepo-template/tsconfig': 'workspace:*'
+
+  husky: catalog:commit-checks
+  lint-staged: catalog:commit-checks
+
+  typescript: catalog:typescript
+  jiti: catalog:typescript
+  '@types/node': catalog:typescript
+
+  yaml: catalog:scripts
+  glob: catalog:scripts
+  '@pnpm/workspace.read-manifest': catalog:scripts

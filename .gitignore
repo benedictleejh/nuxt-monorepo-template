@@ -1,0 +1,34 @@
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+
+# Stylelint
+.stylelintcache
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Playwright test report
+playwright-report
+test-results
+
+# Use package.yaml instead
+package.json
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Local env files
+.env
+.env.*
+!.env.example

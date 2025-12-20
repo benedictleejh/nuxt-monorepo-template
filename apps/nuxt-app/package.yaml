@@ -1,0 +1,89 @@
+name: '@nuxt-monorepo-template/nuxt-app'
+private: true
+type: module
+
+engines:
+  node: '>= 24'
+
+scripts:
+  build: nuxt build
+  dev: nuxt dev
+  generate: nuxt generate
+  preview: nuxt preview
+  postinstall: nuxt prepare
+  typecheck: nuxt typecheck
+
+  test:unit:watch: vitest
+  test:unit: vitest --run
+  test:e2e:ui: playwright test --ui
+  test:e2e: playwright test
+
+  lint: pnpm lint:es && pnpm lint:style
+  lint:es: eslint --max-warnings 0
+  lint:style: stylelint "**/*.{css,less,scss,sass,styl,stylus,pcss,postcss,sss,vue}"
+  lint:fix: pnpm lint:es:fix && pnpm lint:style:fix
+  lint:es:fix: pnpm lint:es --fix
+  lint:style:fix: pnpm lint:style --fix
+
+dependencies:
+  '@nuxt/fonts': catalog:nuxt
+  '@nuxt/image': catalog:nuxt
+
+  '@benedictleejh/nuxt-sanitise-html': catalog:nuxt
+
+  nuxt: catalog:nuxt
+  vue: catalog:vue
+  vue-router: catalog:vue
+
+devDependencies:
+  # For linting
+  '@nuxt/eslint': catalog:nuxt
+  eslint: catalog:eslint
+  eslint-plugin-unicorn: catalog:eslint
+  eslint-plugin-vue-pug: catalog:eslint # ESLint rules for Pug
+  '@vitest/eslint-plugin': catalog:eslint # ESLint rules for Vitest
+  eslint-plugin-playwright: catalog:eslint # ESLint rules for Playwright
+  eslint-plugin-testing-library: catalog:eslint # ESLint rules for Testing Library
+  '@eslint/eslintrc': catalog:eslint # To convert eslint-plugin-vue-pug to new ESLint flat config format
+  yaml: catalog:scripts
+
+  # Enable use of TypeScript config files in various tools
+  jiti: catalog:typescript
+
+  # To use Sass
+  sass-embedded: catalog:sass
+
+  # For testing
+  '@nuxt/test-utils': catalog:nuxt
+  '@playwright/test': catalog:testing
+  '@vue/test-utils': catalog:vue
+  '@testing-library/vue': catalog:testing
+  jsdom: catalog:testing
+  std-env: catalog:testing
+  vitest: catalog:testing
+  monocart-reporter: catalog:testing
+
+  # For code quality checks on pre-commit
+  lint-staged: catalog:commit-checks
+
+  # To enable typechecking
+  typescript: catalog:typescript
+  vue-tsc: catalog:vue
+  '@types/node': catalog:typescript # Allow typechecking of node code as well
+
+  # To use Pug in Vue templates
+  '@vue/language-plugin-pug': catalog:vue # Enables autocompletion for Vue components in Pug templates
+  pug: catalog:vue
+
+  # For linting stylesheets
+  '@nuxtjs/stylelint-module': catalog:nuxt
+  stylelint: catalog:stylelint
+  stylelint-define-config: catalog:stylelint
+  '@stylelint-types/stylelint-scss': catalog:stylelint
+  '@stylelint-types/stylelint-stylistic': catalog:stylelint
+  stylelint-config-standard-scss: catalog:stylelint
+  stylelint-config-standard-vue: catalog:stylelint
+  '@stylistic/stylelint-config': catalog:stylelint
+  # Use SugarSS as a pseudo-sass parser due to postcss-sass not working with media queries
+  postcss-sass: catalog:stylelint
+  postcss-html: catalog:stylelint

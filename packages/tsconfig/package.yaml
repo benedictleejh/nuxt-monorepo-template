@@ -1,0 +1,6 @@
+name: '@nuxt-monorepo-template/tsconfig'
+type: module
+private: true
+license: MIT
+
+description: Base TSConfig for nuxt-monorepo-template

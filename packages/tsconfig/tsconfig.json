@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+
+    "noEmit": true,
+
+    "target": "ESnext",
+    "module": "preserve",
+    "moduleDetection": "force",
+    "moduleResolution": "Bundler",
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+
+    "strict": true,
+
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+
+    "exactOptionalPropertyTypes": true,
+
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitThis": true,
+
+    "useDefineForClassFields": true,
+
+    "jsx": "preserve",
+    "jsxImportSource": "vue"
+  }
+}
