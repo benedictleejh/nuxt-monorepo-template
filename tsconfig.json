@@ -1,6 +1,17 @@
 {
-  "extends": "@nuxt-monorepo-template/tsconfig",
-  "include": [
-    "scripts"
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.root.json"
+    },
+    {
+      "path": "./apps/nuxt-app"
+    },
+    {
+      "path": "./packages/eslint-config"
+    },
+    {
+      "path": "./packages/stylelint-config"
+    }
   ]
 }
