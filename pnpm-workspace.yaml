@@ -59,6 +59,7 @@ catalogs:
 
     '@eslint/js': *eslint
     '@nuxt/eslint-plugin': *nuxt-eslint
+    '@nuxt/eslint-config': *nuxt-eslint
     '@stylistic/eslint-plugin': 5.6.1
     eslint-config-flat-gitignore: 2.1.0
     eslint-plugin-unicorn: 62.0.0
@@ -76,6 +77,7 @@ catalogs:
     eslint-plugin-vue: 10.6.1
     vue-eslint-parser: 10.2.0
     eslint-processor-vue-blocks: 2.0.0
+    eslint-plugin-vuejs-accessibility: 2.4.1
 
     eslint-flat-config-utils: 2.1.4
     '@eslint/config-inspector': 1.4.2
@@ -97,6 +99,7 @@ catalogs:
     '@testing-library/vue': 8.1.0
     jsdom: 27.0.1
     vitest: 3.2.4
+    vite-tsconfig-paths: 6.0.0 # For using tsconfig aliases in tests
 
     '@playwright/test': 1.56.1
     std-env: 3.10.0
@@ -110,6 +113,8 @@ catalogs:
 
     '@types/node': 24.8.1 # Allow typechecking of node code as well
 
+    ts-pattern: 5.9.0 # For pattern matching
+
   sass:
     sass-embedded: 1.93.3
 
@@ -119,7 +124,7 @@ catalogs:
     lint-staged: 16.2.4
 
   package-tools:
-    unbuild: 3.6.1
+    tsdown: 0.18.0
 
   scripts:
     yaml: 2.8.1

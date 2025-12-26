@@ -1,0 +1,20 @@
+{
+  "extends": "@nuxt-monorepo-template/tsconfig",
+  "compilerOptions": {
+    "paths": {
+      "~": [
+        "./src"
+      ],
+      "~/*": [
+        "./src/*"
+      ]
+    },
+    "exactOptionalPropertyTypes": false
+  },
+  "include": [
+    "*.config.*",
+    "src",
+    "scripts",
+    "tests"
+  ]
+}
