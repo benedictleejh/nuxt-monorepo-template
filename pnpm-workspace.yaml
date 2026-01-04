@@ -4,22 +4,15 @@ packages:
 
 minimumReleaseAge: 10080
 
-minimumReleaseAgeExclude:
-  - '@benedictleejh/nuxt-sanitise-html@1.1.0'
-  - '@nuxt/eslint@1.11.0'
-  - '@nuxt/eslint-plugin@1.11.0'
-  - '@nuxt/eslint-config@1.11.0'
-  - '@pnpm/*'
-
 trustPolicy: no-downgrade
 
 catalogMode: strict
 
-ignoredBuiltDependencies:
-  - '@parcel/watcher'
-  - esbuild
-  - sharp
-  - unrs-resolver
+allowBuilds:
+  '@parcel/watcher': false
+  esbuild: false
+  sharp: false
+  unrs-resolver: false
 
 overrides:
   # Remove any reference to @types/eslint due to conflict with ESLint's inbuilt types
@@ -33,9 +26,9 @@ overrides:
 catalogs:
   # Common catalogs to keep consistent dependency versions across apps and packages
   vue:
-    vue: 3.5.22
-    vue-router: 4.6.3
-    vue-tsc: &vue-tools 3.1.1
+    vue: 3.5.26
+    vue-router: 4.6.4
+    vue-tsc: &vue-tools 3.2.1
     '@vue/test-utils': 2.4.6
 
     # To use Pug in Vue templates
@@ -43,16 +36,16 @@ catalogs:
     pug: 3.0.3
 
   nuxt:
-    nuxt: 4.2.1
-    '@nuxt/eslint': &nuxt-eslint 1.11.0
-    '@nuxt/fonts': 0.11.4
-    '@nuxt/image': 1.11.0
-    '@nuxt/test-utils': 3.20.1
+    nuxt: 4.2.2
+    '@nuxt/eslint': &nuxt-eslint 1.12.1
+    '@nuxt/fonts': 0.12.1
+    '@nuxt/image': 2.0.0
+    '@nuxt/test-utils': 3.21.0
     '@nuxtjs/stylelint-module': 5.2.1
     '@benedictleejh/nuxt-sanitise-html': 1.1.0
 
   eslint:
-    eslint: &eslint 9.39.1
+    eslint: &eslint 9.39.2
     '@eslint/core': 0.17.0
     globals: 16.5.0
     eslint-typegen: 2.3.0
@@ -63,18 +56,18 @@ catalogs:
     '@stylistic/eslint-plugin': 5.6.1
     eslint-config-flat-gitignore: 2.1.0
     eslint-plugin-unicorn: 62.0.0
-    '@vitest/eslint-plugin': 1.5.0 # ESLint rules for Vitest
-    eslint-plugin-playwright: 2.2.2 # ESLint rules for Playwright
-    eslint-plugin-testing-library: 7.13.3 # ESLint rules for Testing Library
+    '@vitest/eslint-plugin': 1.6.4 # ESLint rules for Vitest
+    eslint-plugin-playwright: 2.4.0 # ESLint rules for Playwright
+    eslint-plugin-testing-library: 7.15.3 # ESLint rules for Testing Library
     eslint-plugin-import-x: 4.16.1
 
-    '@typescript-eslint/eslint-plugin': &typescript-eslint 8.48.0
+    '@typescript-eslint/eslint-plugin': &typescript-eslint 8.50.1
     '@typescript-eslint/parser': *typescript-eslint
 
     eslint-plugin-vue-pug: 0.6.2 # ESLint rules for Pug
-    '@eslint/eslintrc': 3.3.1 # To convert eslint-plugin-vue-pug to new ESLint flat config format
+    '@eslint/eslintrc': 3.3.3 # To convert eslint-plugin-vue-pug to new ESLint flat config format
 
-    eslint-plugin-vue: 10.6.1
+    eslint-plugin-vue: 10.6.2
     vue-eslint-parser: 10.2.0
     eslint-processor-vue-blocks: 2.0.0
     eslint-plugin-vuejs-accessibility: 2.4.1
@@ -84,8 +77,8 @@ catalogs:
 
   stylelint:
     # For linting stylesheets
-    stylelint: 16.25.0
-    stylelint-define-config: 16.24.0
+    stylelint: 16.26.1
+    stylelint-define-config: 16.26.0
     '@stylelint-types/stylelint-scss': 6.11.0
     '@stylelint-types/stylelint-stylistic': 3.1.3
     stylelint-config-standard-scss: 16.0.0
@@ -97,11 +90,11 @@ catalogs:
 
   testing:
     '@testing-library/vue': 8.1.0
-    jsdom: 27.0.1
+    jsdom: 27.3.0
     vitest: 3.2.4
-    vite-tsconfig-paths: 6.0.0 # For using tsconfig aliases in tests
+    vite-tsconfig-paths: 6.0.3 # For using tsconfig aliases in tests
 
-    '@playwright/test': 1.56.1
+    '@playwright/test': 1.57.0
     std-env: 3.10.0
     monocart-reporter: 2.9.23
 
@@ -111,25 +104,25 @@ catalogs:
     # Enable use of TypeScript config files in various tools
     jiti: 2.6.1
 
-    '@types/node': 24.8.1 # Allow typechecking of node code as well
+    '@types/node': 24.10.4 # Allow typechecking of node code as well
 
     ts-pattern: 5.9.0 # For pattern matching
 
   sass:
-    sass-embedded: 1.93.3
+    sass-embedded: 1.97.1
 
   commit-checks:
     # For code quality checks on pre-commit
     husky: 9.1.7
-    lint-staged: 16.2.4
+    lint-staged: 16.2.7
 
   package-tools:
-    tsdown: 0.18.0
+    tsdown: 0.18.3
 
   scripts:
-    yaml: 2.8.1
+    yaml: 2.8.2
     glob: 10.5.0
-    '@pnpm/workspace.read-manifest': 1000.2.7
+    '@pnpm/workspace.read-manifest': 1000.2.9
 
 
   # App/package-specific dependencies
