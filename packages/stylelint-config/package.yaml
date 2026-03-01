@@ -1,0 +1,62 @@
+name: '@nuxt-monorepo-template/stylelint-config'
+type: module
+private: true
+license: MIT
+
+description: Base Stylelint config for nuxt-monorepo-template
+
+scripts:
+  inspect: stylelint-config-inspector --config src/index.ts
+
+  test: pnpm test:unit
+  test:watch: pnpm test:unit:watch
+  test:unit: vitest run
+  test:unit:watch: vitest
+
+exports:
+  .:
+    types: ./src/index.ts
+    module-sync: ./src/index.ts
+    default: ./src/index.ts
+
+main: ./src/index.ts
+types: ./src/index.ts
+module: ./src/index.ts
+
+# Use Node subpath imports to avoid TypeScript path aliases being resolved in the consuming package context
+imports:
+  '#stylelint-config': ./src/index.ts
+  '#stylelint-config/*':
+    - ./src/*
+    - ./src/*.ts
+    - ./src/*.tsx
+    - ./src/*.js
+    - ./src/*.jsx
+    - ./src/*/index.ts
+    - ./src/*/index.tsx
+    - ./src/*/index.js
+    - ./src/*/index.jsx
+
+peerDependencies:
+  stylelint: catalog:stylelint
+
+dependencies:
+  stylelint-define-config: catalog:stylelint
+  '@stylelint-types/stylelint-scss': catalog:stylelint
+  '@stylelint-types/stylelint-stylistic': catalog:stylelint
+  stylelint-config-standard-scss: catalog:stylelint
+  stylelint-config-standard-vue: catalog:stylelint
+  '@stylistic/stylelint-config': catalog:stylelint
+  postcss-sass: catalog:stylelint
+  postcss-html: catalog:stylelint
+
+devDependencies:
+  '@nuxt-monorepo-template/tsconfig': workspace:*
+
+  '@nuxt-monorepo-template/eslint-config': workspace:*
+
+  eslint: catalog:eslint
+
+  stylelint-config-inspector: catalog:stylelint
+
+  vitest: catalog:testing

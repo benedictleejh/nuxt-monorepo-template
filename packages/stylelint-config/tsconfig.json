@@ -1,0 +1,6 @@
+{
+  "extends": "@nuxt-monorepo-template/tsconfig",
+  "compilerOptions": {
+    "exactOptionalPropertyTypes": false
+  }
+}
