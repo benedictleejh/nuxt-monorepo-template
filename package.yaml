@@ -14,12 +14,10 @@ devEngines:
 scripts:
   prepare: husky
 
-  check:outdated: pnpm --recursive outdated --production; pnpm --recursive outdated --dev
-
-  clean: jiti scripts/clean.ts
+  clean: pnpm dlx jiti scripts/clean.ts
 
   # Task to create package.json for tools that need it
-  compile:packageManifest: jiti scripts/compile-package-manifest.ts
+  compile:packageManifest: pnpm dlx jiti scripts/compile-package-manifest.ts
 
   # Workaround for:
   # - ESLint requiring a package.json
