@@ -281,7 +281,8 @@ useHead({
   border:
     color: var(--un-default-border-color, #e5e7eb)
     style: solid
-    width: 0
+    inline-width: 0
+    block-width: 0
 
 html
   line-height: 1.5
@@ -326,18 +327,18 @@ ul
   padding: 0
 
 svg
-  display: block
+  display: block flow
   vertical-align: middle
 </style>
 
 <style lang="sass" scoped>
 @mixin screen-reader-only
   // sr-only
-  height: 1px
+  block-size: 1px
   margin: -1px
   overflow: hidden
   padding: 0
-  width: 1px
+  inline-size: 1px
   clip-path: rect(0 0 0 0)
   border-width: 0
   white-space: nowrap
@@ -350,77 +351,75 @@ svg
   position: relative
 
 @mixin right-4
-  right: 1rem
+  inset-inline-end: 1rem
 
 @mixin top-4
-  top: 1rem
+  inset-block-start: 1rem
 
 @mixin grid
-  display: grid
+  display: block grid
 
 @mixin grid-cols-1
   grid-template-columns: repeat(1, minmax(0, 1fr))
 
 @mixin mx-auto
-  margin:
-    left: auto
-    right: auto
+  margin-inline: auto
 
 @mixin mb-6
-  margin-bottom: 1.5rem
+  margin-block-end: 1.5rem
 
 @mixin mt-1
-  margin-top: 0.25rem
+  margin-block-start: 0.25rem
 
 @mixin mt-4
-  margin-top: 1rem
+  margin-block-start: 1rem
 
 @mixin mt-6
-  margin-top: 1.5rem
+  margin-block-start: 1.5rem
 
 @mixin inline-block
-  display: inline-block
+  display: inline flow-root
 
 @mixin size-18px
-  height: 18px
-  width: 18px
+  block-size: 18px
+  inline-size: 18px
 
 @mixin size-4
-  height: 1rem
-  width: 1rem
+  block-size: 1rem
+  inline-size: 1rem
 
 @mixin group-hover-size-5
   .group:hover &
-    height: 1.25rem
-    width: 1.25rem
+    block-size: 1.25rem
+    inline-size: 1.25rem
 
 @mixin size-5
-  height: 1.25rem
-  width: 1.25rem
+  block-size: 1.25rem
+  inline-size: 1.25rem
 
 @mixin h-32px
-  height: 32px
+  block-size: 32px
 
 @mixin h-8
-  height: 2rem
+  block-size: 2rem
 
 @mixin max-w-980px
-  max-width: 980px
+  max-inline-size: 980px
 
 @mixin min-h-screen
-  min-height: 100vh
+  min-block-size: 100vh
 
 @mixin w-32px
-  width: 32px
+  inline-size: 32px
 
 @mixin w-full
-  width: 100%
+  inline-size: 100%
 
 @mixin flex
-  display: flex
+  display: block flex
 
 @mixin inline-flex
-  display: inline-flex
+  display: inline flex
 
 @mixin flex-col
   flex-direction: column
@@ -499,19 +498,19 @@ svg
   padding: 1.5rem
 
 @mixin px-2
-  padding:
-    left: 0.5rem
-    right: 0.5rem
+  padding-inline:
+    start: 0.5rem
+    end: 0.5rem
 
 @mixin px-4
-  padding:
-    left: 1rem
-    right: 1rem
+  padding-inline:
+    start: 1rem
+    end: 1rem
 
 @mixin py-1
-  padding:
-    bottom: 0.25rem
-    top: 0.25rem
+  padding-block:
+    end: 0.25rem
+    start: 0.25rem
 
 @mixin text-12px
   font-size: 12px
@@ -662,23 +661,23 @@ svg
 
 @mixin sm-mb-0
   @media (width >= 640px)
-    margin-bottom: 0
+    margin-block-end: 0
 
 @mixin sm-mt-0
   @media (width >= 640px)
-    margin-top: 0
+    margin-block-start: 0
 
 @mixin sm-mt-10
   @media (width >= 640px)
-    margin-top: 2.5rem
+    margin-block-start: 2.5rem
 
 @mixin sm-mt-6
   @media (width >= 640px)
-    margin-top: 1.5rem
+    margin-block-start: 1.5rem
 
 @mixin sm-h-12
   @media (width >= 640px)
-    height: 3rem
+    block-size: 3rem
 
 @mixin sm-gap-6
   @media (width >= 640px)
@@ -686,21 +685,15 @@ svg
 
 @mixin sm-px-2-5
   @media (width >= 640px)
-    padding:
-      left: 0.625rem
-      right: 0.625rem
+    padding-inline: 0.625rem
 
 @mixin sm-px-6
   @media (width >= 640px)
-    padding:
-      left: 1.5rem
-      right: 1.5rem
+    padding-inline: 1.5rem
 
 @mixin sm-py-1-5
   @media (width >= 640px)
-    padding:
-      bottom: 0.375rem
-      top: 0.375rem
+    padding-block: 0.375rem
 
 @mixin sm-text-14px
   @media (width >= 640px)
@@ -713,9 +706,7 @@ svg
 
 @mixin lg-px-8
   @media (width >= 1024px)
-    padding:
-      left: 2rem
-      right: 2rem
+    padding-inline: 2rem
 
 .welcome
   &-main

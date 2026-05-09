@@ -39,7 +39,8 @@ export default defineNuxtConfig({
           '../tests/server/**/*',
           '../tests/fixtures/server/**/*',
           '../tests/mocks/server/**/*',
-          '../tests/utils/server/**/*'
+          '../tests/utils/server/**/*',
+          '../tests/setup/**/*'
         ]
       }
     }
@@ -62,7 +63,8 @@ export default defineNuxtConfig({
         '../tests/app/**/*',
         '../tests/fixtures/app/**/*',
         '../tests/mocks/app/**/*',
-        '../tests/utils/app/**/*'
+        '../tests/utils/app/**/*',
+        '../tests/setup/**/*'
       ]
     },
 
@@ -76,7 +78,8 @@ export default defineNuxtConfig({
         '../tests/shared/**/*',
         '../tests/fixtures/shared/**/*',
         '../tests/mocks/shared/**/*',
-        '../tests/utils/shared/**/*'
+        '../tests/utils/shared/**/*',
+        '../tests/setup/**/*'
       ]
     },
 
@@ -97,22 +100,17 @@ export default defineNuxtConfig({
         '../scripts/*',
 
         // Add e2e tests to node tsconfig
-        '../tests/e2e/**/*'
+        '../tests/e2e/**/*',
+        '../tests/setup/**/*'
       ]
     }
   },
 
   eslint: {
     config: {
-      stylistic: {
-        semi: false,
-        quotes: 'single',
-        commaDangle: 'never',
-        braceStyle: 'stroustrup'
-      },
-
-      typescript: {
-        tsconfigPath: './tsconfig.json'
+      standalone: false,
+      nuxt: {
+        sortConfigKeys: true
       }
     }
   },

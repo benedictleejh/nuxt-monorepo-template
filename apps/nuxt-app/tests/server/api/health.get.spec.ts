@@ -1,5 +1,13 @@
-import { $fetch, fetch, setup } from '@nuxt/test-utils'
-import { describe, expect, it } from 'vitest'
+import {
+  $fetch,
+  fetch,
+  setup
+} from '@nuxt/test-utils'
+import {
+  describe,
+  expect,
+  it
+} from 'vitest'
 
 describe('/api/health', async () => {
   await setup({

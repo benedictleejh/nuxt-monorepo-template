@@ -1,6 +1,10 @@
 import { mountSuspended, renderSuspended } from '@nuxt/test-utils/runtime'
 import { screen } from '@testing-library/vue'
-import { describe, expect, it } from 'vitest'
+import {
+  describe,
+  expect,
+  it
+} from 'vitest'
 
 import StarterWelcome from '~/components/StarterWelcome.vue'
 import { getComponentName } from '~~/tests/utils/app/get-component-name'

@@ -1,6 +1,7 @@
 import type { ConfigOptions } from '@nuxt/test-utils/playwright'
-import { defineConfig, devices } from '@playwright/test'
 import type { MonocartReporterOptions } from 'monocart-reporter'
+
+import { defineConfig, devices } from '@playwright/test'
 import { isCI, isWindows } from 'std-env'
 
 const devicesToTest = [
@@ -61,5 +62,5 @@ export default defineConfig<ConfigOptions>({
     }
   },
 
-  projects: devicesToTest.map(p => typeof p === 'string' ? ({ name: p, use: devices[p] }) : p)
+  projects: devicesToTest.map(p => (typeof p === 'string' ? ({ name: p, use: devices[p] }) : p))
 })
