@@ -1,0 +1,71 @@
+diff --git a/lib/index.d.ts b/lib/index.d.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..dbd4f4ac440780636746492e4f688bfbb28b0c83
+--- /dev/null
++++ b/lib/index.d.ts
+@@ -0,0 +1,20 @@
++declare module 'eslint-plugin-vue-pug' {
++  import type { Linter } from 'eslint'
++
++  const plugin: {
++    configs: {
++      // flat configs
++      'flat/base': Linter.Config[]
++
++      'flat/vue2-essential': Linter.Config[]
++      'flat/vue2-strongly-recommended': Linter.Config[]
++      'flat/vue2-recommended': Linter.Config[]
++
++      'flat/essential': Linter.Config[]
++      'flat/strongly-recommended': Linter.Config[]
++      'flat/recommended': Linter.Config[]
++    }
++  }
++
++  export = plugin
++}
+diff --git a/lib/rules/component-name-in-template-casing.js b/lib/rules/component-name-in-template-casing.js
+index 6df7f90f0051f547b680cc317394950f7d0a6427..24ea0217553cb1f9d274effd1444c379639fc146 100644
+--- a/lib/rules/component-name-in-template-casing.js
++++ b/lib/rules/component-name-in-template-casing.js
+@@ -5,8 +5,8 @@
+ 'use strict'
+ 
+ const utils = require('eslint-plugin-vue/dist/utils').default
+-const casing = require('eslint-plugin-vue/dist/utils/casing').default
+-const { toRegExp } = require('eslint-plugin-vue/dist/utils/regexp').default
++const casing = require('eslint-plugin-vue/dist/utils/casing')
++const { toRegExp } = require('eslint-plugin-vue/dist/utils/regexp')
+ 
+ const allowedCaseOptions = ['PascalCase', 'kebab-case']
+ const defaultCase = 'PascalCase'
+@@ -86,7 +86,7 @@ module.exports = {
+     /** @type {string[]} */
+     const globals = (options.globals || []).map(casing.pascalCase)
+     const registeredComponentsOnly = options.registeredComponentsOnly !== false
+-    const sourceCode = context.getSourceCode()
++    const sourceCode = context.sourceCode
+     const tokens =
+       sourceCode.parserServices.getTemplateBodyTokenStore &&
+       sourceCode.parserServices.getTemplateBodyTokenStore()
+@@ -96,7 +96,7 @@ module.exports = {
+ 
+     if (utils.isScriptSetup(context)) {
+       // For <script setup>
+-      const globalScope = context.getSourceCode().scopeManager.globalScope
++      const globalScope = context.sourceCode.scopeManager.globalScope
+       if (globalScope) {
+         // Only check find the import module
+         const moduleScope = globalScope.childScopes.find(
+diff --git a/package.json b/package.json
+index 3e2290ffca74bfa24a03fcbe052e8364023b6ea3..39f35640151523488777ce9cc5b9a9c8d65be185 100644
+--- a/package.json
++++ b/package.json
+@@ -2,6 +2,7 @@
+   "name": "eslint-plugin-vue-pug",
+   "version": "1.0.0-alpha.5",
+   "description": "linting your pug templates in vue single file components",
++  "types": "lib/index.d.ts",
+   "main": "lib/index.js",
+   "scripts": {
+     "new": "node tools/new-rule.js",

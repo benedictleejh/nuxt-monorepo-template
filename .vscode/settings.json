@@ -3,9 +3,7 @@
   // Normal format-on-save is disabled to avoid interfering with this
   "editor.formatOnSave": false,
   "eslint.options": {
-    "flags": [
-      "v10_config_lookup_from_file"
-    ]
+    "flags": []
   },
   "[javascript]": {
     "editor.codeActionsOnSave": {
