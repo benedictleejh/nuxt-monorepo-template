@@ -1,3 +1,5 @@
+pnpmfile: pnpmfile.ts
+
 packages:
   - apps/*
   - packages/*

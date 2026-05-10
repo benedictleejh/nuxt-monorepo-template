@@ -55,6 +55,7 @@ devDependencies:
   typescript: catalog:typescript
   jiti: catalog:typescript
   '@types/node': catalog:typescript
+  type-fest: catalog:typescript
 
   vitest: catalog:testing
 
