@@ -13,4 +13,8 @@ insert_final_newline = true
 
 # Overrides to not change snapshot files
 [*.ts.snap]
+trim_trailing_whitespace = false
 insert_final_newline = false
+
+[*.patch]
+trim_trailing_whitespace = false
