@@ -6,6 +6,10 @@ minimumReleaseAge: 10080
 
 trustPolicy: no-downgrade
 
+trustPolicyExclude:
+  - '@pnpm/types@1101.0.0'
+  - '@pnpm/core-loggers@1100.0.1'
+
 catalogMode: strict
 
 allowBuilds:
@@ -129,8 +133,6 @@ catalogs:
 
   scripts:
     yaml: 2.8.3
-    glob: 13.0.6
-    '@pnpm/workspace.read-manifest': 1000.3.1
     '@pnpm/workspace.projects-reader': 1101.0.2
 
 

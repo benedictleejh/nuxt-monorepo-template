@@ -59,5 +59,4 @@ devDependencies:
   vitest: catalog:testing
 
   yaml: catalog:scripts
-  glob: catalog:scripts
-  '@pnpm/workspace.read-manifest': catalog:scripts
+  '@pnpm/workspace.projects-reader': catalog:scripts

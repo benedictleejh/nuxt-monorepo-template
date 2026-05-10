@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+
 import { getWorkspaceFiles } from './pnpm'
 
 const dirsToRemove = [
@@ -17,14 +18,14 @@ const filesToRemove = [
   'package.json'
 ]
 
-dirsToRemove.forEach(async dir => {
-  const allPackageDirs = await getWorkspaceFiles(dir)
+dirsToRemove.forEach((dir) => {
+  const allPackageDirs = getWorkspaceFiles(dir)
 
-  allPackageDirs.forEach(dir => fs.rmSync(dir, { recursive: true, force: true }))
+  allPackageDirs.forEach(pkgDir => fs.rmSync(pkgDir, { recursive: true, force: true }))
 })
 
-filesToRemove.forEach(async filename => {
-  const allPackageFiles = await getWorkspaceFiles(filename)
+filesToRemove.forEach((filename) => {
+  const allPackageFiles = getWorkspaceFiles(filename)
 
   allPackageFiles.forEach(file => fs.rmSync(file))
 })
