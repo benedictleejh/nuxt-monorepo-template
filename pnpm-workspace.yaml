@@ -33,8 +33,17 @@ overrides:
   # Remove any reference to @types/eslint due to conflict with ESLint's inbuilt types
   '@types/eslint': '-'
 
-  chokidar: 5.0.0
-  semver: 7.7.3
+  # TODO [@nuxt/eslint>@eslint/config-inspector@>=2.0.0]: Remove when @nuxt/eslint upgrades the config
+  '@nuxt/eslint>@eslint/config-inspector': 2.0.0
+
+  # TODO: Remove when the relevant modules upgrade
+  '@nuxtjs/stylelint-module>chokidar': 5.0.0
+  'sass>chokidar': 5.0.0
+  'vite-plugin-checker>chokidar': 5.0.0
+
+  '@babel/core>semver': 7.7.4
+  '@babel/helper-create-class-features-plugin>semver': 7.7.4
+  '@babel/helper-compilation-targets>semver': 7.7.4
 
 # All depdencencies managed through catalogs to simplify management
 # Exact version pins are used instead of ranges for security
