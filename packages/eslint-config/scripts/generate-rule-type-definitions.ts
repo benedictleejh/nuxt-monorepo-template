@@ -15,7 +15,9 @@ import vuePugEslintPlugin from 'eslint-plugin-vue-pug'
 import vueAccessibilityEslintPlugin from 'eslint-plugin-vuejs-accessibility'
 import { pluginsToRulesDTS } from 'eslint-typegen/core'
 
-import { createNuxtEslintConfig } from '../src/factory'
+// See https://github.com/un-ts/eslint-plugin-import-x/issues/365
+// eslint-disable-next-line import/no-relative-parent-imports
+import { createNuxtEslintConfig } from '#eslint-config'
 
 const nuxtConfigOptions = resolveOptions({
   features: {
@@ -58,7 +60,6 @@ const rawDts = await pluginsToRulesDTS(
     'vitest': vitestEslintPlugin,
     'playwright': playwrightEslintPlugin,
     'testing-library': testingLibraryEslintPlugin,
-    // @ts-expect-error See https://github.com/un-ts/eslint-plugin-import-x/issues/421
     'import': importEslintPlugin,
     'vue-accessibility': vueAccessibilityEslintPlugin,
     'vue-pug': vuePugEslintPlugin,
@@ -75,14 +76,7 @@ const dts = rawDts
 `)
   // Fix https://github.com/bcherny/json-schema-to-typescript/issues/671
   .replace(
-    `type VitestValidTitle = []|[{
-  ignoreTypeOfDescribeName?: boolean
-  allowArguments?: boolean
-  disallowedWords?: string[]
-  [k: string]: (string | [string]|[string, string] | {
-    [k: string]: (string | [string]|[string, string]) | undefined
-  })
-}]`,
+    /^type VitestValidTitle = \[\]\|\[\{\s*ignoreTypeOfDescribeName\?:\s*boolean\s*allowArguments\?:\s*boolean\s*disallowedWords\?:\s*string\[\]\s*\[k:\s*string\]:\s*\(string\s*\|\s*\[string\]\s*\|\s*\[string,\s*string\]\s*\|\s*\{\s*\[k:\s*string\]:\s*\(string\s*\|\s*\[string\]\s*\|\s*\[string,\s*string\]\)\s*\|\s*undefined\s*\}\)\s*\}\]$/um,
     `type MatcherGroups = 'describe' | 'test' | 'it'
 type MatcherAndMessage = [matcher: string, message?: string]
 type VitestValidTitle = []|[{

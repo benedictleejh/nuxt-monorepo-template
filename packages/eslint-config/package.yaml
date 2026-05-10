@@ -11,9 +11,23 @@ exports:
     import: ./src/index.ts
     default: ./src/index.ts
 
-main: ./src/index.ts
-types: ./src/index.ts
-module: ./src/index.ts
+# main: ./src/index.ts
+# types: ./src/index.ts
+# module: ./src/index.ts
+
+# Use Node subpath imports to avoid TypeScript path aliases being resolved in the consuming package context
+imports:
+  '#eslint-config': ./src/index.ts
+  '#eslint-config/*':
+    - ./src/*
+    - ./src/*.ts
+    - ./src/*.tsx
+    - ./src/*.js
+    - ./src/*.jsx
+    - ./src/*/index.ts
+    - ./src/*/index.tsx
+    - ./src/*/index.js
+    - ./src/*/index.jsx
 
 scripts:
   postinstall: pnpm generate:ruleTypeDefinitions
@@ -22,10 +36,9 @@ scripts:
 
   typecheck: tsc
 
-  dev: tsdown --watch
-
+  preinspect: pnpm build
   # Specify host to allow the config inspector page to be accessible over WSL port forwarding
-  inspect: eslint-config-inspector --host 0.0.0.0
+  inspect: eslint-config-inspector --host 0.0.0.0 --open false
 
   prebuild: pnpm generate:ruleTypeDefinitions
   build: tsdown
@@ -57,12 +70,11 @@ dependencies:
   eslint-plugin-playwright: catalog:eslint
   eslint-plugin-testing-library: catalog:eslint
   eslint-plugin-import-x: catalog:eslint
+  eslint-plugin-vue-pug: catalog:eslint
 
   '@typescript-eslint/eslint-plugin': catalog:eslint
   '@typescript-eslint/parser': catalog:eslint
 
-  eslint-plugin-vue-pug: catalog:eslint
-  '@eslint/eslintrc': catalog:eslint
 
   eslint-plugin-vue: catalog:eslint
   vue-eslint-parser: catalog:eslint
@@ -72,6 +84,7 @@ dependencies:
   eslint-flat-config-utils: catalog:eslint
 
   ts-pattern: catalog:typescript
+  type-fest: catalog:typescript
 
 devDependencies:
   '@nuxt-monorepo-template/tsconfig': workspace:*

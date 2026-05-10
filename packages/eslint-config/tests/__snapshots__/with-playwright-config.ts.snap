@@ -538,6 +538,7 @@
         "error-handling-correctness-only",
       ],
       "@typescript-eslint/strict-boolean-expressions": "error",
+      "@typescript-eslint/strict-void-return": "error",
       "@typescript-eslint/switch-exhaustiveness-check": [
         "error",
         {
@@ -846,6 +847,15 @@
         "property",
       ],
       "@stylistic/eol-last": "error",
+      "@stylistic/exp-jsx-props-style": [
+        "error",
+        {
+          "multiLine": {
+            "maxItemsPerLine": 1,
+            "minItems": 3,
+          },
+        },
+      ],
       "@stylistic/exp-list-style": [
         "error",
         {
@@ -1020,6 +1030,7 @@
         "error",
         {
           "code": 120,
+          "ignorePattern": "d=".*"",
           "ignoreRegExpLiterals": true,
           "ignoreStrings": true,
           "ignoreTemplateLiterals": true,
@@ -1107,10 +1118,7 @@
       "@stylistic/object-curly-spacing": "off",
       "@stylistic/object-property-newline": "off",
       "@stylistic/one-var-declaration-per-line": "error",
-      "@stylistic/operator-linebreak": [
-        "error",
-        "before",
-      ],
+      "@stylistic/operator-linebreak": "error",
       "@stylistic/padded-blocks": [
         "error",
         {
@@ -1245,6 +1253,7 @@
       "unicorn/consistent-empty-array-spread": "error",
       "unicorn/consistent-existence-index-check": "error",
       "unicorn/consistent-function-scoping": "error",
+      "unicorn/consistent-template-literal-escape": "error",
       "unicorn/custom-error-definition": "off",
       "unicorn/empty-brace-spaces": "error",
       "unicorn/error-message": "error",
@@ -1253,6 +1262,7 @@
       "unicorn/explicit-length-check": "error",
       "unicorn/filename-case": "error",
       "unicorn/import-style": "error",
+      "unicorn/isolated-functions": "error",
       "unicorn/new-for-builtins": "error",
       "unicorn/no-abusive-eslint-disable": "error",
       "unicorn/no-accessor-recursion": "error",
@@ -1302,6 +1312,7 @@
       "unicorn/no-useless-collection-argument": "error",
       "unicorn/no-useless-error-capture-stack-trace": "error",
       "unicorn/no-useless-fallback-in-spread": "error",
+      "unicorn/no-useless-iterator-to-array": "error",
       "unicorn/no-useless-length-check": "error",
       "unicorn/no-useless-promise-resolve-reject": "error",
       "unicorn/no-useless-spread": "error",
@@ -1359,6 +1370,7 @@
       "unicorn/prefer-response-static-json": "error",
       "unicorn/prefer-set-has": "error",
       "unicorn/prefer-set-size": "error",
+      "unicorn/prefer-simple-condition-first": "error",
       "unicorn/prefer-single-call": "error",
       "unicorn/prefer-spread": "error",
       "unicorn/prefer-string-raw": "error",
@@ -1380,6 +1392,7 @@
       "unicorn/require-post-message-target-origin": "off",
       "unicorn/string-content": "off",
       "unicorn/switch-case-braces": "error",
+      "unicorn/switch-case-break-position": "error",
       "unicorn/template-indent": "error",
       "unicorn/text-encoding-identifier-case": "error",
       "unicorn/throw-new-error": "error",
@@ -1515,6 +1528,7 @@
       "vitest/prefer-importing-vitest-globals": "error",
       "vitest/prefer-lowercase-title": "error",
       "vitest/prefer-mock-promise-shorthand": "error",
+      "vitest/prefer-mock-return-shorthand": "error",
       "vitest/prefer-snapshot-hint": "error",
       "vitest/prefer-spy-on": "error",
       "vitest/prefer-strict-boolean-matchers": "error",
@@ -1532,8 +1546,10 @@
       "vitest/require-hook": "error",
       "vitest/require-local-test-context-for-concurrent-snapshots": "error",
       "vitest/require-mock-type-parameters": "error",
+      "vitest/require-test-timeout": "off",
       "vitest/require-to-throw-message": "error",
       "vitest/require-top-level-describe": "error",
+      "vitest/unbound-method": "error",
       "vitest/valid-describe-callback": "error",
       "vitest/valid-expect": "error",
       "vitest/valid-expect-in-promise": "error",
@@ -1543,6 +1559,7 @@
           "allowArguments": true,
         },
       ],
+      "vitest/warn-todo": "error",
     },
   },
   {
@@ -1552,6 +1569,7 @@
     "name": "nuxt-monorepo-template/playwright",
     "rules": {
       "no-empty-pattern": "off",
+      "playwright/consistent-spacing-between-blocks": "error",
       "playwright/expect-expect": "error",
       "playwright/max-expects": "off",
       "playwright/max-nested-describe": "error",
@@ -1560,6 +1578,7 @@
       "playwright/no-conditional-expect": "error",
       "playwright/no-conditional-in-test": "error",
       "playwright/no-duplicate-hooks": "error",
+      "playwright/no-duplicate-slow": "error",
       "playwright/no-element-handle": "error",
       "playwright/no-eval": "error",
       "playwright/no-focused-test": "error",
@@ -1571,6 +1590,10 @@
       "playwright/no-nth-methods": "error",
       "playwright/no-page-pause": "error",
       "playwright/no-raw-locators": "error",
+      "playwright/no-restricted-locators": [
+        "error",
+        [],
+      ],
       "playwright/no-restricted-matchers": [
         "error",
         {
@@ -1578,6 +1601,10 @@
           "toBeTruthy": "Use `toBe(true)` instead.",
           "toEqual": "Use `toStrictEqual` instead.",
         },
+      ],
+      "playwright/no-restricted-roles": [
+        "error",
+        [],
       ],
       "playwright/no-skipped-test": "error",
       "playwright/no-slowed-test": [
@@ -1609,6 +1636,8 @@
       "playwright/prefer-web-first-assertions": "error",
       "playwright/require-hook": "error",
       "playwright/require-soft-assertions": "off",
+      "playwright/require-tags": "off",
+      "playwright/require-to-pass-timeout": "error",
       "playwright/require-to-throw-message": "error",
       "playwright/require-top-level-describe": "error",
       "playwright/valid-describe-callback": "error",

@@ -28,7 +28,7 @@ import {
 import { resolveConfig } from './utils'
 
 const buildEslintConfig = (resolvedConfig: ResolvedConfig) => composer<EslintFlatConfigItem, EslintConfigName>(
-  gitignore({ strict: false }),
+  gitignore({ strict: false, recursive: true }),
   ignores(),
   javascript(),
   typescript(),
@@ -58,8 +58,8 @@ export const createEslintConfig = (config: Config): FlatConfigComposer<EslintFla
  *
  * To use this function, pass in the `withNuxt()` function, i.e. `createNuxtEslintConfig(withNuxt())`
  */
-export const createNuxtEslintConfig
-  = (nuxtEslintConfig: FlatConfigComposer): FlatConfigComposer<EslintFlatConfigItem, EslintConfigName> =>
+export const createNuxtEslintConfig =
+  (nuxtEslintConfig: FlatConfigComposer): FlatConfigComposer<EslintFlatConfigItem, EslintConfigName> =>
     nuxtEslintConfig
       .prepend(buildEslintConfig({
         features: {

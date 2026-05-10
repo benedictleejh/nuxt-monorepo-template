@@ -1,10 +1,9 @@
-import type { EslintConfigName, EslintFlatConfigItem } from '~/utils'
+import type { EslintConfigName, EslintFlatConfigItem } from '#eslint-config/utils'
 
 import { composer as defineFlatConfigs } from 'eslint-flat-config-utils'
 import { importX } from 'eslint-plugin-import-x'
 
 export const imports = () => defineFlatConfigs<EslintFlatConfigItem, EslintConfigName>(
-  // @ts-expect-error See https://github.com/un-ts/eslint-plugin-import-x/issues/421
   {
     name: 'nuxt-monorepo-template/imports/rules',
     plugins: {
@@ -58,7 +57,7 @@ export const imports = () => defineFlatConfigs<EslintFlatConfigItem, EslintConfi
         {
           ignorePackages: true,
           pattern: {
-            // For Nuxt ESLint's import of '~~/.nuxt/eslint.config.mjs'
+            // For Nuxt ESLint's import of '~#eslint-config/.nuxt/eslint.config.mjs'
             mjs: 'always',
 
             // Allow importing data from JSON files

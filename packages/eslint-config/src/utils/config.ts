@@ -1,14 +1,7 @@
-import type { StylisticCustomizeOptions } from '@stylistic/eslint-plugin'
+import type { StylisticCustomizeOptions, UnprefixedRuleOptions } from '@stylistic/eslint-plugin'
+import type { PartialDeep } from 'type-fest'
 
 import { defu } from 'defu'
-
-// type DeepRequired<T> = Required<{
-//   [K in keyof T]: T[K] extends Required<T[K]> ? T[K] : DeepRequired<T[K]>
-// }>
-
-type DeepPartial<T> = T extends object ? {
-  [P in keyof T]?: DeepPartial<T[P]>;
-} : T
 
 export type Config = {
   features: {
@@ -28,7 +21,9 @@ export type ResolvedConfig = {
   features: {
     vue: 'with-nuxt' | 'vue-only' | false
     playwright: boolean
-    stylistic: Required<Pick<StylisticCustomizeOptions, 'indent' | 'commaDangle'>>
+    stylistic: Required<Pick<StylisticCustomizeOptions, 'commaDangle'>> & {
+      indent: NonNullable<UnprefixedRuleOptions['indent'][0]>
+    }
   }
 }
 
@@ -49,7 +44,7 @@ export const resolveConfig = (config: Config): ResolvedConfig => {
       ...config.features,
       vue: config.features.vue ? 'vue-only' : config.features.vue
     }
-  } satisfies DeepPartial<ResolvedConfig>
+  } satisfies PartialDeep<ResolvedConfig>
 
   return defu(translatedConfig, defaultConfig)
 }

@@ -1,4 +1,4 @@
-import type { EslintConfigName, EslintFlatConfigItem } from '~/utils'
+import type { EslintConfigName, EslintFlatConfigItem } from '#eslint-config/utils'
 
 import eslintPluginJs from '@eslint/js'
 import { composer as defineFlatConfigs } from 'eslint-flat-config-utils'

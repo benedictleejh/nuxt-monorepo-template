@@ -1,4 +1,4 @@
-import type { EslintFlatConfigItem } from '~/utils'
+import type { EslintFlatConfigItem } from '#eslint-config/utils'
 
 import { defineFlatConfig } from 'eslint-flat-config-utils'
 
@@ -18,8 +18,8 @@ const configOverrides = () => [
 ]
 
 export const nuxtOverrides = () => {
-  const overrides: [string, () => EslintFlatConfigItem][]
-    = configOverrides().map(config => [config.name ?? '', () => config])
+  const overrides: [string, () => EslintFlatConfigItem][] =
+    configOverrides().map(config => [config.name ?? '', () => config])
 
   return Object.fromEntries(overrides)
 }

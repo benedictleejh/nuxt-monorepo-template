@@ -2,7 +2,7 @@ import type {
   EslintConfigName,
   EslintFlatConfigItem,
   ResolvedConfig
-} from '~/utils'
+} from '#eslint-config/utils'
 
 import stylisticEslintPlugin from '@stylistic/eslint-plugin'
 import { composer as defineFlatConfigs } from 'eslint-flat-config-utils'
@@ -85,6 +85,15 @@ export const stylistic = (config: ResolvedConfig) => {
         '@stylistic/jsx-child-element-spacing': 'error',
         '@stylistic/jsx-newline': 'error',
         '@stylistic/jsx-pascal-case': 'error',
+        '@stylistic/exp-jsx-props-style': [
+          'error',
+          {
+            multiLine: {
+              minItems: 3,
+              maxItemsPerLine: 1
+            }
+          }
+        ],
         '@stylistic/jsx-self-closing-comp': 'error',
         '@stylistic/jsx-sort-props': 'off',
         '@stylistic/line-comment-position': 'off',
@@ -115,7 +124,8 @@ export const stylistic = (config: ResolvedConfig) => {
             ignoreUrls: true,
             ignoreStrings: true,
             ignoreTemplateLiterals: true,
-            ignoreRegExpLiterals: true
+            ignoreRegExpLiterals: true,
+            ignorePattern: 'd=".*"' // Ignore inline SVG path attributes
           }
         ],
         '@stylistic/member-delimiter-style': [
@@ -144,6 +154,7 @@ export const stylistic = (config: ResolvedConfig) => {
         '@stylistic/no-extra-semi': 'error',
         '@stylistic/nonblock-statement-body-position': 'off', // Single-line statements are not allowed
         '@stylistic/one-var-declaration-per-line': 'error',
+        '@stylistic/operator-linebreak': 'error',
         '@stylistic/padding-line-between-statements': [
           'error',
           {

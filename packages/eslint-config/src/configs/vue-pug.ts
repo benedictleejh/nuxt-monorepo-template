@@ -1,23 +1,32 @@
-import type { EslintConfigName, EslintFlatConfigItem } from '~/utils'
+import type { EslintConfigName, EslintFlatConfigItem } from '#eslint-config/utils'
 
-import { FlatCompat } from '@eslint/eslintrc'
 import { composer as defineFlatConfigs } from 'eslint-flat-config-utils'
+import eslintPluginVuePug from 'eslint-plugin-vue-pug'
 
-const compat = new FlatCompat({ baseDirectory: import.meta.dirname })
-const compatConfigs = compat.extends('plugin:vue-pug/vue3-recommended')
-const vuePugRules = compatConfigs.map(conf => conf.rules ?? {}).reduce((acc, curr) => Object.assign(acc, curr), {})
-const eslintPluginVuePug = compatConfigs.reduce((acc, curr) => Object.assign(acc, curr), {})
+import { upgradeWarnConfigRulesToError } from '#eslint-config/utils'
+
+const vuePugRules =
+  eslintPluginVuePug.configs['flat/recommended']
+    .map(conf => conf.rules ?? {})
+    .reduce((acc, curr) => Object.assign(acc, curr), {})
 
 export const vuePug = () => defineFlatConfigs<EslintFlatConfigItem, EslintConfigName>(
   {
-    ...eslintPluginVuePug,
     name: 'nuxt-monorepo-template/vue-pug',
-    rules: {
-      ...vuePugRules
+    files: ['*.vue', '**/*.vue'],
+    plugins: {
+      'vue-pug': eslintPluginVuePug
     },
     languageOptions: {
-      ...eslintPluginVuePug.languageOptions,
-      ecmaVersion: 'latest'
+      parserOptions: {
+        templateTokenizer: {
+          pug: 'vue-eslint-parser-template-tokenizer-pug'
+        }
+      }
+    },
+    rules: {
+      ...upgradeWarnConfigRulesToError(vuePugRules),
+      'vue-pug/component-name-in-template-casing': ['error', 'PascalCase']
     }
   }
 )

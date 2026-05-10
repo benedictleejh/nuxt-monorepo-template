@@ -2,15 +2,15 @@ import type {
   EslintConfigName,
   EslintFlatConfigItem,
   ResolvedConfig
-} from '../utils'
+} from '#eslint-config/utils'
 
 import { composer as defineFlatConfigs } from 'eslint-flat-config-utils'
 import vueEslintPlugin from 'eslint-plugin-vue'
 import vueEslintParser from 'vue-eslint-parser'
 
-import { getRulesFromEslintConfig, upgradeWarnConfigRulesToError } from '../utils'
-
 import { typescriptParser } from './typescript'
+
+import { getRulesFromEslintConfig, upgradeWarnConfigRulesToError } from '#eslint-config/utils'
 
 export {
   vueEslintParser
@@ -116,6 +116,9 @@ export const vue = (config: ResolvedConfig) => defineFlatConfigs<EslintFlatConfi
       // Leads to false positives in Vue SFCs, and better handled by @typescript-eslint/no-unused-vars
       'no-useless-assignment': 'off',
       ...updatedVueRules,
+
+      // Vue 2 rule
+      'vue/no-custom-modifiers-on-v-model': 'off',
 
       'vue/html-indent': [
         'error',
@@ -247,6 +250,12 @@ export const vue = (config: ResolvedConfig) => defineFlatConfigs<EslintFlatConfi
       'vue/no-duplicate-class-names': 'error',
       'vue/no-empty-component-block': 'error',
       'vue/no-import-compiler-macros': 'error',
+      'vue/no-literals-in-template': [
+        'error',
+        {
+          ignores: []
+        }
+      ],
       'vue/no-multiple-objects-in-class': 'error',
       'vue/no-negated-v-if-condition': 'error',
       'vue/no-potential-component-option-typo': 'error',
@@ -287,6 +296,7 @@ export const vue = (config: ResolvedConfig) => defineFlatConfigs<EslintFlatConfi
       'vue/no-template-target-blank': 'off', // NuxtLink handles this directly
       'vue/no-this-in-before-route-enter': 'error',
       'vue/no-undef-components': 'off', // Turn off due to Nuxt auto imports
+      'vue/no-undef-directives': 'error',
       'vue/no-undef-properties': 'error',
       'vue/no-unsupported-features': 'off', // Keep Vue updated
       'vue/no-unused-emit-declarations': 'error',
@@ -305,8 +315,10 @@ export const vue = (config: ResolvedConfig) => defineFlatConfigs<EslintFlatConfi
       'vue/prefer-define-options': 'error',
       'vue/prefer-prop-type-boolean-first': 'error',
       'vue/prefer-separate-static-class': 'error',
+      'vue/prefer-single-event-payload': 'error',
       'vue/prefer-true-attribute-shorthand': 'error',
       'vue/prefer-use-template-ref': 'error',
+      'vue/prefer-v-model': 'error',
       'vue/require-default-export': 'error',
       'vue/require-direct-export': 'error',
       'vue/require-emit-validator': 'error',

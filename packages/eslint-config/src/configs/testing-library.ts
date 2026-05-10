@@ -1,4 +1,4 @@
-import type { EslintConfigName, EslintFlatConfigItem } from '~/utils'
+import type { EslintConfigName, EslintFlatConfigItem } from '#eslint-config/utils'
 
 import { composer as defineFlatConfigs } from 'eslint-flat-config-utils'
 import eslintPluginTestingLibrary from 'eslint-plugin-testing-library'
@@ -30,6 +30,7 @@ export const testingLibrary = () => defineFlatConfigs<EslintFlatConfigItem, Esli
         }
       ],
       'testing-library/prefer-user-event': 'error',
+      'testing-library/prefer-user-event-setup': 'error',
 
       // Not applicable to @testing-library/vue
       'testing-library/consistent-data-testid': 'off',

@@ -1,4 +1,4 @@
-import type { EslintConfigName, EslintFlatConfigItem } from '~/utils'
+import type { EslintConfigName, EslintFlatConfigItem } from '#eslint-config/utils'
 
 import typescriptEslintPlugin from '@typescript-eslint/eslint-plugin'
 import typescriptParser from '@typescript-eslint/parser'
@@ -214,6 +214,7 @@ export const typescript = () => defineFlatConfigs<EslintFlatConfigItem, EslintCo
       '@typescript-eslint/promise-function-async': 'off',
       '@typescript-eslint/require-array-sort-compare': 'error',
       '@typescript-eslint/strict-boolean-expressions': 'error',
+      '@typescript-eslint/strict-void-return': 'error',
       '@typescript-eslint/switch-exhaustiveness-check': [
         'error',
         {

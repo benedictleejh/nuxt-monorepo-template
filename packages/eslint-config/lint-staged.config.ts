@@ -6,12 +6,12 @@ const { name } = manifest
 
 export default {
   '*.ts': stagedFiles => [
-    `pnpm --filter '${name}' lint:es ${stagedFiles.join(' ')}`
+    `pnpm --filter ${name} lint:es ${stagedFiles.join(' ')}`
   ],
   '*.{*,1}': () => [
-    `pnpm --filter '${name}' typecheck`
+    `pnpm --filter ${name} typecheck`
   ],
   '*.{*,2}': () => [
-    `pnpm --filter '${name}' test:unit`
+    `pnpm --filter ${name} test:unit`
   ]
 } satisfies Configuration

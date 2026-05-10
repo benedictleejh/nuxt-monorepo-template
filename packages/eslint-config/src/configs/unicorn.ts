@@ -1,7 +1,7 @@
 import type {
   EslintConfigName,
   EslintFlatConfigItem
-} from '~/utils'
+} from '#eslint-config/utils'
 
 import { composer as defineFlatConfigs } from 'eslint-flat-config-utils'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'

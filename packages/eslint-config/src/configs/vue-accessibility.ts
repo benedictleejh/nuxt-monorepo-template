@@ -1,12 +1,12 @@
-import type { EslintConfigName, EslintFlatConfigItem } from '../utils'
+import type { EslintConfigName, EslintFlatConfigItem } from '#eslint-config/utils'
 
 import { composer as defineFlatConfigs } from 'eslint-flat-config-utils'
 import vueAccessibilityEslintPlugin from 'eslint-plugin-vuejs-accessibility'
 import globals from 'globals'
 
-import { getRulesFromEslintConfig } from '../utils'
-
 import { vueEslintParser } from './vue'
+
+import { getRulesFromEslintConfig } from '#eslint-config/utils'
 
 const fixedConfig = await defineFlatConfigs(...vueAccessibilityEslintPlugin.configs['flat/recommended']).renamePlugins({
   'vuejs-accessibility': 'vue-accessibility'

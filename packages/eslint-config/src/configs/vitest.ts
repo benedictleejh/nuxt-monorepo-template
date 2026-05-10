@@ -1,9 +1,9 @@
-import type { EslintConfigName, EslintFlatConfigItem } from '../utils'
+import type { EslintConfigName, EslintFlatConfigItem } from '#eslint-config/utils'
 
 import eslintPluginVitest from '@vitest/eslint-plugin'
 import { composer as defineFlatConfigs } from 'eslint-flat-config-utils'
 
-import { upgradeWarnConfigRulesToError } from '../utils'
+import { upgradeWarnConfigRulesToError } from '#eslint-config/utils'
 
 const vitestRules = upgradeWarnConfigRulesToError(eslintPluginVitest.configs.all.rules)
 
@@ -29,12 +29,16 @@ export const vitest = () => defineFlatConfigs<EslintFlatConfigItem, EslintConfig
       ],
       'vitest/prefer-expect-assertions': 'off',
 
+      'vitest/prefer-mock-return-shorthand': 'error',
+
       'vitest/valid-title': [
         'error',
         {
           allowArguments: true
         }
       ],
+
+      'vitest/warn-todo': 'error',
 
       // To allow common setup
       'vitest/no-hooks': 'off',

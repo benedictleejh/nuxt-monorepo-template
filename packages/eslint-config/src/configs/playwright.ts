@@ -1,9 +1,9 @@
-import type { EslintConfigName, EslintFlatConfigItem } from '../utils'
+import type { EslintConfigName, EslintFlatConfigItem } from '#eslint-config/utils'
 
 import { composer as defineFlatConfigs } from 'eslint-flat-config-utils'
 import eslintPluginPlaywright from 'eslint-plugin-playwright'
 
-import { upgradeWarnConfigRulesToError } from '../utils'
+import { upgradeWarnConfigRulesToError } from '#eslint-config/utils'
 
 export const playwright = () => defineFlatConfigs<EslintFlatConfigItem, EslintConfigName>(
   {
@@ -21,6 +21,10 @@ export const playwright = () => defineFlatConfigs<EslintFlatConfigItem, EslintCo
       'playwright/no-hooks': 'off', // Allow hooks to setup things as necessary
       'playwright/no-nth-methods': 'error',
       'playwright/no-raw-locators': 'error',
+      'playwright/no-restricted-locators': [
+        'error',
+        []
+      ],
       'playwright/no-restricted-matchers': [
         'error',
         {
@@ -28,6 +32,10 @@ export const playwright = () => defineFlatConfigs<EslintFlatConfigItem, EslintCo
           toBeTruthy: 'Use `toBe(true)` instead.',
           toEqual: 'Use `toStrictEqual` instead.'
         }
+      ],
+      'playwright/no-restricted-roles': [
+        'error',
+        []
       ],
       'playwright/no-slowed-test': [
         'error',
@@ -49,6 +57,8 @@ export const playwright = () => defineFlatConfigs<EslintFlatConfigItem, EslintCo
       'playwright/prefer-to-have-length': 'error',
       'playwright/require-hook': 'error',
       'playwright/require-soft-assertions': 'off', // Workflow-dependent, change as needed
+      'playwright/require-tags': 'off', // Workflow-dependent, change as needed
+      'playwright/require-to-pass-timeout': 'error',
       'playwright/require-to-throw-message': 'error',
       'playwright/require-top-level-describe': 'error'
     }

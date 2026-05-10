@@ -1,7 +1,7 @@
 import type { RuleConfig, RulesConfig } from '@eslint/core'
 import type { Linter } from 'eslint'
 
-import type { ConfigNames, RuleDefinitions } from '~/eslint-rules'
+import type { ConfigNames, RuleDefinitions } from '#eslint-config/eslint-rules'
 
 import { match, P } from 'ts-pattern'
 
@@ -12,8 +12,8 @@ export const getRulesFromEslintConfig = (config: Linter.Config[]): Partial<Rules
     .reduce((acc, c) => ({ ...acc, ...c }), {})
 
 export const upgradeWarnConfigRulesToError = (rules: Partial<RulesConfig>) => {
-  const fixedRules
-    = Object.entries(rules)
+  const fixedRules =
+    Object.entries(rules)
       .map(([ruleName, config]) =>
         match(config)
           .returnType<[string, RuleConfig | undefined]>()

@@ -20,7 +20,13 @@ allowBuilds:
   sharp: false
   unrs-resolver: false
 
+packageExtensions:
+  '@eslint/config-inspector':
+    dependencies:
+      jiti: ^2.6.0
+
 patchedDependencies:
+  '@eslint/config-inspector': patches/@eslint__config-inspector.patch
   eslint-plugin-vue-pug: patches/eslint-plugin-vue-pug.patch
 
 overrides:

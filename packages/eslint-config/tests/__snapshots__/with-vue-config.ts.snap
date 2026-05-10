@@ -538,6 +538,7 @@
         "error-handling-correctness-only",
       ],
       "@typescript-eslint/strict-boolean-expressions": "error",
+      "@typescript-eslint/strict-void-return": "error",
       "@typescript-eslint/switch-exhaustiveness-check": [
         "error",
         {
@@ -913,6 +914,7 @@
           "checkLoops": "allExceptWhileTrue",
         },
       ],
+      "vue/no-custom-modifiers-on-v-model": "off",
       "vue/no-deprecated-data-object-declaration": "error",
       "vue/no-deprecated-delete-set": "error",
       "vue/no-deprecated-destroyed-lifecycle": "error",
@@ -956,6 +958,12 @@
       "vue/no-import-compiler-macros": "error",
       "vue/no-irregular-whitespace": "error",
       "vue/no-lifecycle-after-await": "error",
+      "vue/no-literals-in-template": [
+        "error",
+        {
+          "ignores": [],
+        },
+      ],
       "vue/no-lone-template": "error",
       "vue/no-loss-of-precision": "error",
       "vue/no-multi-spaces": "error",
@@ -999,6 +1007,7 @@
       "vue/no-textarea-mustache": "error",
       "vue/no-this-in-before-route-enter": "error",
       "vue/no-undef-components": "off",
+      "vue/no-undef-directives": "error",
       "vue/no-undef-properties": "error",
       "vue/no-unsupported-features": "off",
       "vue/no-unused-components": "error",
@@ -1046,9 +1055,11 @@
       "vue/prefer-import-from-vue": "error",
       "vue/prefer-prop-type-boolean-first": "error",
       "vue/prefer-separate-static-class": "error",
+      "vue/prefer-single-event-payload": "error",
       "vue/prefer-template": "error",
       "vue/prefer-true-attribute-shorthand": "error",
       "vue/prefer-use-template-ref": "error",
+      "vue/prefer-v-model": "error",
       "vue/prop-name-casing": "error",
       "vue/quote-props": [
         "error",
@@ -1205,13 +1216,20 @@
     },
   },
   {
+    "files": [
+      "*.vue",
+      "**/*.vue",
+    ],
     "name": "nuxt-monorepo-template/vue-pug",
     "rules": {
+      "vue-pug/component-name-in-template-casing": [
+        "error",
+        "PascalCase",
+      ],
       "vue-pug/no-parsing-error": "error",
-      "vue-pug/no-pug-control-flow": "warn",
+      "vue-pug/no-pug-control-flow": "error",
       "vue/component-name-in-template-casing": "off",
       "vue/html-end-tags": "off",
-      "vue/html-indent": "off",
       "vue/html-self-closing": "off",
       "vue/multiline-html-element-content-newline": "off",
       "vue/singleline-html-element-content-newline": "off",
@@ -1442,6 +1460,15 @@
         "property",
       ],
       "@stylistic/eol-last": "error",
+      "@stylistic/exp-jsx-props-style": [
+        "error",
+        {
+          "multiLine": {
+            "maxItemsPerLine": 1,
+            "minItems": 3,
+          },
+        },
+      ],
       "@stylistic/exp-list-style": [
         "error",
         {
@@ -1616,6 +1643,7 @@
         "error",
         {
           "code": 120,
+          "ignorePattern": "d=".*"",
           "ignoreRegExpLiterals": true,
           "ignoreStrings": true,
           "ignoreTemplateLiterals": true,
@@ -1703,10 +1731,7 @@
       "@stylistic/object-curly-spacing": "off",
       "@stylistic/object-property-newline": "off",
       "@stylistic/one-var-declaration-per-line": "error",
-      "@stylistic/operator-linebreak": [
-        "error",
-        "before",
-      ],
+      "@stylistic/operator-linebreak": "error",
       "@stylistic/padded-blocks": [
         "error",
         {
@@ -1841,6 +1866,7 @@
       "unicorn/consistent-empty-array-spread": "error",
       "unicorn/consistent-existence-index-check": "error",
       "unicorn/consistent-function-scoping": "error",
+      "unicorn/consistent-template-literal-escape": "error",
       "unicorn/custom-error-definition": "off",
       "unicorn/empty-brace-spaces": "error",
       "unicorn/error-message": "error",
@@ -1849,6 +1875,7 @@
       "unicorn/explicit-length-check": "error",
       "unicorn/filename-case": "error",
       "unicorn/import-style": "error",
+      "unicorn/isolated-functions": "error",
       "unicorn/new-for-builtins": "error",
       "unicorn/no-abusive-eslint-disable": "error",
       "unicorn/no-accessor-recursion": "error",
@@ -1898,6 +1925,7 @@
       "unicorn/no-useless-collection-argument": "error",
       "unicorn/no-useless-error-capture-stack-trace": "error",
       "unicorn/no-useless-fallback-in-spread": "error",
+      "unicorn/no-useless-iterator-to-array": "error",
       "unicorn/no-useless-length-check": "error",
       "unicorn/no-useless-promise-resolve-reject": "error",
       "unicorn/no-useless-spread": "error",
@@ -1955,6 +1983,7 @@
       "unicorn/prefer-response-static-json": "error",
       "unicorn/prefer-set-has": "error",
       "unicorn/prefer-set-size": "error",
+      "unicorn/prefer-simple-condition-first": "error",
       "unicorn/prefer-single-call": "error",
       "unicorn/prefer-spread": "error",
       "unicorn/prefer-string-raw": "error",
@@ -1976,6 +2005,7 @@
       "unicorn/require-post-message-target-origin": "off",
       "unicorn/string-content": "off",
       "unicorn/switch-case-braces": "error",
+      "unicorn/switch-case-break-position": "error",
       "unicorn/template-indent": "error",
       "unicorn/text-encoding-identifier-case": "error",
       "unicorn/throw-new-error": "error",
@@ -2111,6 +2141,7 @@
       "vitest/prefer-importing-vitest-globals": "error",
       "vitest/prefer-lowercase-title": "error",
       "vitest/prefer-mock-promise-shorthand": "error",
+      "vitest/prefer-mock-return-shorthand": "error",
       "vitest/prefer-snapshot-hint": "error",
       "vitest/prefer-spy-on": "error",
       "vitest/prefer-strict-boolean-matchers": "error",
@@ -2128,8 +2159,10 @@
       "vitest/require-hook": "error",
       "vitest/require-local-test-context-for-concurrent-snapshots": "error",
       "vitest/require-mock-type-parameters": "error",
+      "vitest/require-test-timeout": "off",
       "vitest/require-to-throw-message": "error",
       "vitest/require-top-level-describe": "error",
+      "vitest/unbound-method": "error",
       "vitest/valid-describe-callback": "error",
       "vitest/valid-expect": "error",
       "vitest/valid-expect-in-promise": "error",
@@ -2139,6 +2172,7 @@
           "allowArguments": true,
         },
       ],
+      "vitest/warn-todo": "error",
     },
   },
   {
@@ -2197,6 +2231,7 @@
       ],
       "testing-library/prefer-screen-queries": "error",
       "testing-library/prefer-user-event": "error",
+      "testing-library/prefer-user-event-setup": "error",
       "testing-library/render-result-naming-convention": "error",
     },
   },
