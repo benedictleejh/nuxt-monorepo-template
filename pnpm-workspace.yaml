@@ -21,6 +21,7 @@ allowBuilds:
   unrs-resolver: false
 
 packageExtensions:
+  # TODO [@eslint/config-inspector@>=3.0.0]: Remove when @eslint/config-inspector uses jiti to load configs
   '@eslint/config-inspector':
     dependencies:
       jiti: ^2.6.0
@@ -31,19 +32,21 @@ patchedDependencies:
 
 overrides:
   # Remove any reference to @types/eslint due to conflict with ESLint's inbuilt types
+  # TODO [webpack>eslint-scope@>=9.1.2]: Remove this override after webpack updates its eslint-scope dependency
   '@types/eslint': '-'
 
-  # TODO [@nuxt/eslint>@eslint/config-inspector@>=2.0.0]: Remove when @nuxt/eslint upgrades the config
-  '@nuxt/eslint>@eslint/config-inspector': 2.0.0
+  # TODO [@nuxt/eslint>@eslint/config-inspector@>=2.0.0]: Remove when @nuxt/eslint upgrades the config inspector
+  '@nuxt/eslint>@eslint/config-inspector': catalog:eslint
 
   # TODO: Remove when the relevant modules upgrade
-  '@nuxtjs/stylelint-module>chokidar': 5.0.0
-  'sass>chokidar': 5.0.0
-  'vite-plugin-checker>chokidar': 5.0.0
+  '@nuxtjs/stylelint-module>chokidar': &chokidar 5.0.0
+  'sass>chokidar': *chokidar
+  'vite-plugin-checker>chokidar': *chokidar
 
-  '@babel/core>semver': 7.7.4
-  '@babel/helper-create-class-features-plugin>semver': 7.7.4
-  '@babel/helper-compilation-targets>semver': 7.7.4
+  # TODO [@vitejs/plugin-vue-jsx>@babel/*@>=8.0.0]: Remove when @vitejs/plugin-vue-jsx updates to Babel 8
+  '@babel/core>semver': &semver 7.7.4
+  '@babel/helper-create-class-features-plugin>semver': *semver
+  '@babel/helper-compilation-targets>semver': *semver
 
 # All depdencencies managed through catalogs to simplify management
 # Exact version pins are used instead of ranges for security
