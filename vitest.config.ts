@@ -1,6 +1,6 @@
 import { defineConfig as defineVitestConfig } from 'vitest/config'
 
-import { workspacePackages } from './scripts/pnpm'
+import { workspacePackages } from './scripts/utils/workspace'
 
 export default defineVitestConfig({
   test: {

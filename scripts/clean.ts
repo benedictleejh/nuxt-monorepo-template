@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 
-import { getWorkspaceFiles } from './pnpm'
+import { getWorkspaceFiles } from './utils/workspace'
 
 const dirsToRemove = [
   '.output',
