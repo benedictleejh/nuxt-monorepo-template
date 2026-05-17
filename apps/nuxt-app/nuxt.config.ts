@@ -23,6 +23,10 @@ export default defineNuxtConfig({
     }
   },
 
+  devServer: {
+    port: 3000
+  },
+
   compatibilityDate: '2024-04-03',
 
   nitro: {
