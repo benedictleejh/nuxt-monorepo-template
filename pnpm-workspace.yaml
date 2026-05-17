@@ -152,7 +152,6 @@ catalogs:
     tsdown: 0.21.10
 
   scripts:
-    yaml: 2.8.3
     '@pnpm/workspace.projects-reader': 1101.0.2
 
 
