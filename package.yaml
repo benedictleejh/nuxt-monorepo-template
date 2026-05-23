@@ -14,7 +14,7 @@ devEngines:
 scripts:
   prepare: husky
 
-  clean: jiti scripts/clean.ts
+  clean: ruby scripts/clean.rb
 
   # Task to create package.json for tools that need it
   compile:packageManifests: ruby scripts/compile_package_manifests.rb
