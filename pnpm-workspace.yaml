@@ -4,32 +4,6 @@ packages:
   - apps/*
   - packages/*
 
-minimumReleaseAge: 10080
-
-trustPolicy: no-downgrade
-
-trustPolicyExclude:
-  - '@pnpm/types@1101.0.0'
-  - '@pnpm/core-loggers@1100.0.1'
-
-catalogMode: strict
-
-allowBuilds:
-  '@parcel/watcher': false
-  esbuild: false
-  sharp: false
-  unrs-resolver: false
-
-packageExtensions:
-  # TODO [@eslint/config-inspector@>=3.0.0]: Remove when @eslint/config-inspector uses jiti to load configs
-  '@eslint/config-inspector':
-    dependencies:
-      jiti: ^2.6.0
-
-patchedDependencies:
-  '@eslint/config-inspector': patches/@eslint__config-inspector.patch
-  eslint-plugin-vue-pug: patches/eslint-plugin-vue-pug.patch
-
 overrides:
   # Remove any reference to @types/eslint due to conflict with ESLint's inbuilt types
   # TODO [webpack>eslint-scope@>=9.1.2]: Remove this override after webpack updates its eslint-scope dependency
@@ -47,6 +21,32 @@ overrides:
   '@babel/core>semver': &semver 7.7.4
   '@babel/helper-create-class-features-plugin>semver': *semver
   '@babel/helper-compilation-targets>semver': *semver
+
+packageExtensions:
+  # TODO [@eslint/config-inspector@>=3.0.0]: Remove when @eslint/config-inspector uses jiti to load configs
+  '@eslint/config-inspector':
+    dependencies:
+      jiti: ^2.6.0
+
+minimumReleaseAge: 10080
+
+trustPolicy: no-downgrade
+
+trustPolicyExclude:
+  - '@pnpm/types@1101.0.0'
+  - '@pnpm/core-loggers@1100.0.1'
+
+allowBuilds:
+  '@parcel/watcher': false
+  esbuild: false
+  sharp: false
+  unrs-resolver: false
+
+catalogMode: strict
+
+patchedDependencies:
+  '@eslint/config-inspector': patches/@eslint__config-inspector.patch
+  eslint-plugin-vue-pug: patches/eslint-plugin-vue-pug.patch
 
 # All depdencencies managed through catalogs to simplify management
 # Exact version pins are used instead of ranges for security
