@@ -42,7 +42,7 @@ catalogs:
   vue:
     vue: 3.5.34
     vue-router: 5.0.7
-    vue-tsc: &vue-tools 3.2.9
+    vue-tsc: &vue-tools 3.3.1
     '@vue/test-utils': 2.4.10
 
     # To use Pug in Vue templates
@@ -50,7 +50,7 @@ catalogs:
     pug: 3.0.4
 
   nuxt:
-    nuxt: 4.4.5
+    nuxt: 4.4.6
     '@nuxt/eslint': &nuxt-eslint 1.15.2
     '@nuxt/fonts': 0.14.0
     '@nuxt/image': 2.0.0
@@ -71,12 +71,12 @@ catalogs:
     eslint-config-flat-gitignore: 2.3.0
     eslint-plugin-unicorn: 64.0.0
     '@vitest/eslint-plugin': 1.6.17 # ESLint rules for Vitest
-    eslint-plugin-playwright: 2.10.2 # ESLint rules for Playwright
+    eslint-plugin-playwright: 2.10.4 # ESLint rules for Playwright
     eslint-plugin-testing-library: 7.16.2 # ESLint rules for Testing Library
     eslint-plugin-import-x: 4.16.2
     eslint-plugin-vue-pug: 1.0.0-alpha.5 # ESLint rules for Pug
 
-    '@typescript-eslint/eslint-plugin': &typescript-eslint 8.59.3
+    '@typescript-eslint/eslint-plugin': &typescript-eslint 8.59.4
     '@typescript-eslint/parser': *typescript-eslint
 
     eslint-plugin-vue: 10.9.1
@@ -89,7 +89,7 @@ catalogs:
 
   stylelint:
     # For linting stylesheets
-    stylelint: 17.11.1
+    stylelint: 17.12.0
     stylelint-define-config: 17.11.0
     '@stylelint-types/stylelint-scss': 7.0.1
     '@stylelint-types/stylelint-stylistic': 5.1.0
@@ -104,7 +104,7 @@ catalogs:
   testing:
     '@testing-library/vue': 8.1.0
     jsdom: 29.1.1
-    vitest: 4.1.6
+    vitest: 4.1.7
     vite-tsconfig-paths: 6.1.1 # For using tsconfig aliases in tests
 
     '@playwright/test': 1.60.0
@@ -128,7 +128,7 @@ catalogs:
     ts-pattern: 5.9.0 # For pattern matching
 
   sass:
-    sass-embedded: 1.99.0
+    sass-embedded: 1.100.0
 
   commit-checks:
     # For code quality checks on pre-commit
@@ -139,7 +139,7 @@ catalogs:
     tsdown: 0.22.0
 
   scripts:
-    '@pnpm/workspace.projects-reader': 1101.0.4
+    '@pnpm/workspace.projects-reader': 1101.0.6
 
 
   # App/package-specific dependencies
