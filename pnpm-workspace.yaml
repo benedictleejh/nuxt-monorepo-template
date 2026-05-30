@@ -127,7 +127,7 @@ catalogs:
 
     ts-pattern: 5.9.0 # For pattern matching
 
-  sass:
+  styling:
     sass-embedded: 1.100.0
 
   commit-checks:

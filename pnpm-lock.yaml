@@ -311,10 +311,6 @@ catalogs:
     tsdown:
       specifier: 0.22.0
       version: 0.22.0
-  sass:
-    sass-embedded:
-      specifier: 1.100.0
-      version: 1.100.0
   scripts:
     '@pnpm/workspace.projects-reader':
       specifier: 1101.0.6
@@ -350,6 +346,10 @@ catalogs:
     stylelint-define-config:
       specifier: 17.11.0
       version: 17.11.0
+  styling:
+    sass-embedded:
+      specifier: 1.100.0
+      version: 1.100.0
   testing:
     '@playwright/test':
       specifier: 1.60.0
@@ -529,7 +529,7 @@ importers:
         specifier: catalog:vue
         version: 3.0.4
       sass-embedded:
-        specifier: catalog:sass
+        specifier: catalog:styling
         version: 1.100.0
       std-env:
         specifier: catalog:testing

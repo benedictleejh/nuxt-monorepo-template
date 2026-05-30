@@ -45,7 +45,7 @@ devDependencies:
   jiti: catalog:typescript
 
   # To use Sass
-  sass-embedded: catalog:sass
+  sass-embedded: catalog:styling
 
   # For testing
   '@nuxt/test-utils': catalog:nuxt
