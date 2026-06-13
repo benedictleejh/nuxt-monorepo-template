@@ -40,17 +40,17 @@ patchedDependencies:
 catalogs:
   # Common catalogs to keep consistent dependency versions across apps and packages
   vue:
-    vue: 3.5.34
+    vue: 3.5.35
     vue-router: 5.0.7
-    vue-tsc: &vue-tools 3.3.1
-    '@vue/test-utils': 2.4.10
+    vue-tsc: &vue-tools 3.3.3
+    '@vue/test-utils': 2.4.11
 
     # To use Pug in Vue templates
     '@vue/language-plugin-pug': *vue-tools # Enables autocompletion for Vue components in Pug templates
     pug: 3.0.4
 
   nuxt:
-    nuxt: 4.4.6
+    nuxt: 4.4.7
     '@nuxt/eslint': &nuxt-eslint 1.15.2
     '@nuxt/fonts': 0.14.0
     '@nuxt/image': 2.0.0
@@ -59,7 +59,7 @@ catalogs:
     '@benedictleejh/nuxt-sanitise-html': 1.1.3
 
   eslint:
-    eslint: 10.4.0
+    eslint: 10.4.1
     '@eslint/core': 1.2.1
     globals: 17.6.0
     eslint-typegen: 2.3.1
@@ -70,22 +70,22 @@ catalogs:
     '@stylistic/eslint-plugin': 5.10.0
     eslint-config-flat-gitignore: 2.3.0
     eslint-plugin-unicorn: 64.0.0
-    '@vitest/eslint-plugin': 1.6.17 # ESLint rules for Vitest
+    '@vitest/eslint-plugin': 1.6.19 # ESLint rules for Vitest
     eslint-plugin-playwright: 2.10.4 # ESLint rules for Playwright
     eslint-plugin-testing-library: 7.16.2 # ESLint rules for Testing Library
     eslint-plugin-import-x: 4.16.2
     eslint-plugin-vue-pug: 1.0.0-alpha.5 # ESLint rules for Pug
 
-    '@typescript-eslint/eslint-plugin': &typescript-eslint 8.59.4
+    '@typescript-eslint/eslint-plugin': &typescript-eslint 8.60.1
     '@typescript-eslint/parser': *typescript-eslint
 
-    eslint-plugin-vue: 10.9.1
-    vue-eslint-parser: 10.4.0
+    eslint-plugin-vue: 10.9.2
+    vue-eslint-parser: 10.4.1
     eslint-processor-vue-blocks: 2.0.0
     eslint-plugin-vuejs-accessibility: 2.5.0
 
     eslint-flat-config-utils: 3.2.0
-    '@eslint/config-inspector': 3.0.2
+    '@eslint/config-inspector': 3.0.4
 
   stylelint:
     # For linting stylesheets
@@ -99,12 +99,12 @@ catalogs:
     # Use SugarSS as a pseudo-sass parser due to postcss-sass not working with media queries
     postcss-sass: npm:sugarss@5.0.1
     postcss-html: 1.8.1
-    stylelint-config-inspector: 2.3.0
+    stylelint-config-inspector: 2.3.4
 
   testing:
     '@testing-library/vue': 8.1.0
     jsdom: 29.1.1
-    vitest: 4.1.7
+    vitest: 4.1.8
     vite-tsconfig-paths: 6.1.1 # For using tsconfig aliases in tests
 
     '@playwright/test': 1.60.0
@@ -118,12 +118,12 @@ catalogs:
     ts-extras: 1.0.0
 
     # Type utilities
-    type-fest: 5.6.0
+    type-fest: 5.7.0
 
     # Enable use of TypeScript config files in various tools
     jiti: 2.7.0
 
-    '@types/node': 24.12.4 # Allow typechecking of node code as well
+    '@types/node': 24.13.1 # Allow typechecking of node code as well
 
     ts-pattern: 5.9.0 # For pattern matching
 
@@ -133,13 +133,13 @@ catalogs:
   commit-checks:
     # For code quality checks on pre-commit
     husky: 9.1.7
-    lint-staged: 17.0.5
+    lint-staged: 17.0.7
 
   package-tools:
-    tsdown: 0.22.0
+    tsdown: 0.22.2
 
   scripts:
-    '@pnpm/workspace.projects-reader': 1101.0.6
+    '@pnpm/workspace.projects-reader': 1101.0.9
 
 
   # App/package-specific dependencies
