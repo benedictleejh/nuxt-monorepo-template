@@ -16,6 +16,8 @@ scripts:
 
   clean: ruby scripts/clean.rb
 
+  install:full: pnpm run clean --lockfile && pnpm install --lockfile-only && pnpm ci
+
   # Task to create package.json for tools that need it
   compile:packageManifests: ruby scripts/compile_package_manifests.rb
 

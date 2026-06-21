@@ -1,6 +1,12 @@
 require 'fileutils'
+require 'optparse'
 
 require_relative 'utils/workspace'
+
+options = {}
+OptionParser.new do |parser|
+  parser.on("--lockfile", "Remove lockfile in addition to other files")
+end.parse(ARGV, into: options)
 
 entries_to_remove = [
   # Folders
@@ -17,7 +23,7 @@ entries_to_remove = [
   'package.json'
 ]
 
-system 'pnpm pm clean'
+system "pnpm pm clean #{"--lockfile" if options[:lockfile]}"
 
 Workspace.packages.each do |package|
   entries_to_remove.each do |entry|
