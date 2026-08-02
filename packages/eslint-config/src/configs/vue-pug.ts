@@ -7,8 +7,8 @@ import { upgradeWarnConfigRulesToError } from '#eslint-config/utils'
 
 const vuePugRules =
   eslintPluginVuePug.configs['flat/recommended']
-    .map(conf => conf.rules ?? {})
-    .reduce((acc, curr) => Object.assign(acc, curr), {})
+    .map(config => config.rules ?? {})
+    .reduce((allRules, configRules) => Object.assign(allRules, configRules), {})
 
 export const vuePug = () => defineFlatConfigs<EslintFlatConfigItem, EslintConfigName>(
   {

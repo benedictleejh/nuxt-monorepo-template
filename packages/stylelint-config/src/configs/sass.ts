@@ -59,7 +59,6 @@ export const sass = defineStylelintConfig({
     'scss/declaration-nested-properties': [
       'always',
       {
-        // @ts-expect-error See https://github.com/stylelint-types/stylelint-scss/issues/1
         except: ['only-of-namespace']
       }
     ],

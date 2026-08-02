@@ -7,8 +7,6 @@ import {
   it
 } from 'vitest'
 
-// See https://github.com/un-ts/eslint-plugin-import-x/issues/365
-// eslint-disable-next-line import/no-relative-parent-imports
 import { createEslintConfig, createNuxtEslintConfig } from '#eslint-config'
 
 const getConfigDigest = (configs: Linter.Config[]) =>

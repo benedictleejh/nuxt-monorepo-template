@@ -55,12 +55,19 @@ export const playwright = () => defineFlatConfigs<EslintFlatConfigItem, EslintCo
       'playwright/prefer-to-contain': 'error',
       'playwright/prefer-to-have-count': 'error',
       'playwright/prefer-to-have-length': 'error',
-      'playwright/require-hook': 'error',
+      'playwright/require-hook': [
+        'error',
+        {
+          allowedFunctionCalls: [
+            'forEach'
+          ]
+        }
+      ],
       'playwright/require-soft-assertions': 'off', // Workflow-dependent, change as needed
       'playwright/require-tags': 'off', // Workflow-dependent, change as needed
       'playwright/require-to-pass-timeout': 'error',
-      'playwright/require-to-throw-message': 'error',
-      'playwright/require-top-level-describe': 'error'
+      'playwright/require-to-throw-message': 'error'
+      // 'playwright/require-top-level-describe': 'error'
     }
   }
 )

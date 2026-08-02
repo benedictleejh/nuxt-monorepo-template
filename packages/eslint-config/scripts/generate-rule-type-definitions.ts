@@ -5,7 +5,6 @@ import nuxtEslintPlugin from '@nuxt/eslint-plugin'
 import stylisticEslintPlugin from '@stylistic/eslint-plugin'
 import typescriptEslintPlugin from '@typescript-eslint/eslint-plugin'
 import vitestEslintPlugin from '@vitest/eslint-plugin'
-import { builtinRules } from 'eslint/use-at-your-own-risk'
 import importEslintPlugin from 'eslint-plugin-import-x'
 import playwrightEslintPlugin from 'eslint-plugin-playwright'
 import testingLibraryEslintPlugin from 'eslint-plugin-testing-library'
@@ -15,8 +14,6 @@ import vuePugEslintPlugin from 'eslint-plugin-vue-pug'
 import vueAccessibilityEslintPlugin from 'eslint-plugin-vuejs-accessibility'
 import { pluginsToRulesDTS } from 'eslint-typegen/core'
 
-// See https://github.com/un-ts/eslint-plugin-import-x/issues/365
-// eslint-disable-next-line import/no-relative-parent-imports
 import { createNuxtEslintConfig } from '#eslint-config'
 
 const nuxtConfigOptions = resolveOptions({
@@ -45,12 +42,14 @@ const nuxtConfig = createConfigForNuxt(nuxtConfigOptions)
 const config = await createNuxtEslintConfig(nuxtConfig)
 const configNames = config.map(c => c.name).filter(n => n !== undefined)
 
+// There is no other way to access ESLint's built in rules at the moment
+// eslint-disable-next-line @typescript-eslint/no-deprecated
+const { builtinRules } = await import('eslint/use-at-your-own-risk')
+
 const rawDts = await pluginsToRulesDTS(
   {
     '': {
-      // There is no other way to access ESLint's built in rules at the moment
-      // eslint-disable-next-line @typescript-eslint/no-deprecated
-      rules: Object.fromEntries(builtinRules.entries())
+      rules: Object.fromEntries(builtinRules)
     },
     // @ts-expect-error See https://github.com/typescript-eslint/typescript-eslint/issues/11543
     '@typescript-eslint': typescriptEslintPlugin,
@@ -72,7 +71,7 @@ const rawDts = await pluginsToRulesDTS(
   }
 )
 const dts = rawDts
-  .replace(/^/u, `export type ConfigNames = ${configNames.map(n => `'${n}'`).join(' | ')} | string & {}
+  .replace(/^/u, () => `export type ConfigNames = ${configNames.map(n => `'${n}'`).join(' | ')} | string & {}
 `)
   // Fix https://github.com/bcherny/json-schema-to-typescript/issues/671
   .replace(

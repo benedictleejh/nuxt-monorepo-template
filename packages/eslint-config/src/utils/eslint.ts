@@ -5,11 +5,11 @@ import type { ConfigNames, RuleDefinitions } from '#eslint-config/eslint-rules'
 
 import { match, P } from 'ts-pattern'
 
-export const getRulesFromEslintConfig = (config: Linter.Config[]): Partial<RulesConfig> =>
-  config
-    .map(c => c.rules)
-    .filter(r => r !== undefined)
-    .reduce((acc, c) => ({ ...acc, ...c }), {})
+export const getRulesFromEslintConfig = (configs: Linter.Config[]): Partial<RulesConfig> =>
+  configs
+    .map(config => config.rules)
+    .filter(configRules => configRules !== undefined)
+    .reduce((rulesConfig, configRules) => ({ ...rulesConfig, ...configRules }), {})
 
 export const upgradeWarnConfigRulesToError = (rules: Partial<RulesConfig>) => {
   const fixedRules =

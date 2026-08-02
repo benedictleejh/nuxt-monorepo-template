@@ -15,14 +15,14 @@ describe('/api/health', async () => {
   })
 
   it(`should return status 'ok'`, async () => {
-    const res = await $fetch('/api/health')
+    const response = await $fetch('/api/health')
 
-    expect(res.status).toBe('ok')
+    expect(response.status).toBe('ok')
   })
 
   it('should return status code 200', async () => {
-    const res = await fetch('/api/health')
+    const response = await fetch('/api/health')
 
-    expect(res.status).toBe(200)
+    expect(response.status).toBe(200)
   })
 })

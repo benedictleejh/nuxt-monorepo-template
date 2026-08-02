@@ -1,10 +1,11 @@
 /* eslint-disable
     @typescript-eslint/explicit-member-accessibility,
     @typescript-eslint/no-useless-constructor,
-    unicorn/prefer-spread,
     no-plusplus,
     @typescript-eslint/no-non-null-assertion,
-    unicorn/prefer-code-point
+    unicorn/prefer-code-point,
+    unicorn/no-global-object-property-assignment,
+    unicorn/name-replacements
 */
 // JSDom + Vitest don't play well with each other. Long story short - default
 // TextEncoder produces Uint8Array objects that are _different_ from the global

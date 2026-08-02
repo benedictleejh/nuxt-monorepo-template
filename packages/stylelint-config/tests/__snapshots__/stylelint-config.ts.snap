@@ -1,5 +1,5 @@
 {
-  "customSyntax": "sugarss/index.mjs",
+  "customSyntax": "postcss-sass",
   "languageOptions": {
     "directionality": {
       "block": "top-to-bottom",

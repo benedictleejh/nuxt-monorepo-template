@@ -7,7 +7,6 @@ export const setup = defineStylelintConfig({
     '@stylistic/stylelint-config'
   ],
   languageOptions: {
-    // @ts-expect-error See https://github.com/stylelint-types/stylelint-define-config/issues/2
     directionality: {
       block: 'top-to-bottom',
       inline: 'left-to-right'

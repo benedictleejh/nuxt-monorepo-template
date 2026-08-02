@@ -1,13 +1,30 @@
 import type { EslintConfigName, EslintFlatConfigItem } from '#eslint-config/utils'
 
 import { composer as defineFlatConfigs } from 'eslint-flat-config-utils'
-import { importX } from 'eslint-plugin-import-x'
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript'
+import { createNodeResolver, importX } from 'eslint-plugin-import-x'
 
 export const imports = () => defineFlatConfigs<EslintFlatConfigItem, EslintConfigName>(
   {
     name: 'nuxt-monorepo-template/imports/rules',
     plugins: {
       import: importX
+    },
+    settings: {
+      'import-x/resolver-next': [
+        createTypeScriptImportResolver(),
+        createNodeResolver()
+      ],
+      'import-x/extensions': [
+        '.ts',
+        '.tsx',
+        '.cts',
+        '.mts',
+        '.js',
+        '.jsx',
+        '.cjs',
+        '.mjs'
+      ]
     },
     rules: {
       'import/export': 'error',
@@ -36,7 +53,8 @@ export const imports = () => defineFlatConfigs<EslintFlatConfigItem, EslintConfi
       'import/no-dynamic-require': 'error',
       'import/no-internal-modules': 'off',
       'import/no-relative-packages': 'error',
-      'import/no-relative-parent-imports': 'error',
+      // Too many false positives due to https://github.com/un-ts/eslint-plugin-import-x/issues/365
+      'import/no-relative-parent-imports': 'off',
       'import/no-restricted-paths': 'off', // To enable when needed
       // Required for Vitest's inability to mock functions from the same module
       // See https://github.com/vitest-dev/vitest/discussions/3667#discussioncomment-15278407

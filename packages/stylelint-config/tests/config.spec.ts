@@ -6,7 +6,7 @@ import {
 } from 'vitest'
 
 const getConfigDigest = ({
-  extends: e,
+  extends: extendedConfigs,
   plugins,
   ignoreFiles,
   rules,
@@ -18,7 +18,7 @@ const getConfigDigest = ({
 }: stylelint.Config) =>
   JSON.parse(
     JSON.stringify({
-      extends: e,
+      extends: extendedConfigs,
       plugins:
         typeof plugins === 'string' ? plugins.split('node_modules/').at(-1)
         : Array.isArray(plugins) ? plugins.map(plugin => (

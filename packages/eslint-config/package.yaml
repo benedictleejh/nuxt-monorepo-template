@@ -69,8 +69,10 @@ dependencies:
   '@vitest/eslint-plugin': catalog:eslint
   eslint-plugin-playwright: catalog:eslint
   eslint-plugin-testing-library: catalog:eslint
-  eslint-plugin-import-x: catalog:eslint
   eslint-plugin-vue-pug: catalog:eslint
+
+  eslint-plugin-import-x: catalog:eslint
+  eslint-import-resolver-typescript: catalog:eslint
 
   '@typescript-eslint/eslint-plugin': catalog:eslint
   '@typescript-eslint/parser': catalog:eslint

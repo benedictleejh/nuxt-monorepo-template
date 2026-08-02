@@ -15,11 +15,12 @@ export const unicorn = () => defineFlatConfigs<EslintFlatConfigItem, EslintConfi
       'unicorn/consistent-destructuring': 'error',
       'unicorn/expiring-todo-comments': 'off',
       'unicorn/prefer-import-meta-properties': 'error',
-      'unicorn/prefer-export-from': ['error', { ignoreUsedVariables: true }],
+      'unicorn/prefer-export-from': ['error', { checkUsedVariables: false }],
       'unicorn/prevent-abbreviations': 'off',
       'unicorn/no-array-for-each': 'off',
       'unicorn/no-array-reduce': 'off',
       'unicorn/no-empty-file': 'off',
+      'unicorn/no-for-each': 'off',
       'unicorn/no-nested-ternary': 'off',
       'unicorn/no-useless-undefined': 'off'
     }
@@ -33,7 +34,8 @@ export const unicorn = () => defineFlatConfigs<EslintFlatConfigItem, EslintConfi
       'unicorn/filename-case': [
         'error',
         {
-          case: 'pascalCase'
+          case: 'pascalCase',
+          checkDirectories: false
         }
       ]
     }
@@ -47,7 +49,8 @@ export const unicorn = () => defineFlatConfigs<EslintFlatConfigItem, EslintConfi
       'unicorn/filename-case': [
         'error',
         {
-          case: 'camelCase'
+          case: 'camelCase',
+          checkDirectories: false
         }
       ]
     }
@@ -83,7 +86,8 @@ export const unicorn = () => defineFlatConfigs<EslintFlatConfigItem, EslintConfi
       'unicorn/filename-case': [
         'error',
         {
-          case: 'kebabCase'
+          case: 'kebabCase',
+          checkDirectories: false
         }
       ]
     }
