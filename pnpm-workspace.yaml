@@ -105,7 +105,6 @@ catalogs:
     '@testing-library/vue': 8.1.0
     jsdom: 30.0.1
     vitest: 4.1.11
-    vite-tsconfig-paths: 6.1.1 # For using tsconfig aliases in tests
 
     '@playwright/test': 1.62.1
     std-env: 4.2.0

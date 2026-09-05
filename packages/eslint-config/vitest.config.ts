@@ -1,10 +1,9 @@
-import tsconfigPaths from 'vite-tsconfig-paths'
 import { defineProject as defineVitestProject } from 'vitest/config'
 
 export default defineVitestProject({
-  plugins: [
-    tsconfigPaths()
-  ],
+  resolve: {
+    tsconfigPaths: true
+  },
   test: {
     name: 'eslint-config-tests',
     include: [

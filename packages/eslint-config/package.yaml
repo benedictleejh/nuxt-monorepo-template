@@ -101,4 +101,3 @@ devDependencies:
   jiti: catalog:typescript
 
   vitest: catalog:testing
-  vite-tsconfig-paths: catalog:testing
