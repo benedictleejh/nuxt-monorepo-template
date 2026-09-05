@@ -20,25 +20,25 @@ const devicesToTest = [
   // { ...devices['Desktop Chrome'], channel: 'chrome' },
 ] satisfies (string | typeof devices[string])[]
 
-/* See https://playwright.dev/docs/test-configuration. */
+// See https://playwright.dev/docs/test-configuration.
 export default defineConfig<ConfigOptions>({
   testDir: './tests/e2e',
 
-  /* Run tests in files in parallel */
+  // Run tests in files in parallel
   fullyParallel: true,
 
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
+  // Fail the build on CI if you accidentally left test.only in the source code.
   forbidOnly: isCI,
 
-  /* Retry on CI only */
+  // Retry on CI only
   retries: isCI ? 2 : 0,
 
-  /* Opt out of parallel tests on CI. */
+  // Opt out of parallel tests on CI.
   workers: isCI ? 1 : undefined,
 
   timeout: isWindows ? 60_000 : undefined,
 
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
+  // Reporter to use. See https://playwright.dev/docs/test-reporters
   reporter: [
     [
       'monocart-reporter',
@@ -48,15 +48,15 @@ export default defineConfig<ConfigOptions>({
     ]
   ],
 
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  // Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions.
   use: {
     // Capture screenshot after each test failure.
     screenshot: 'only-on-failure',
 
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    // Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer
     trace: 'on-first-retry',
 
-    /* Nuxt configuration options */
+    // Nuxt configuration options
     nuxt: {
       rootDir: import.meta.dirname
     }

@@ -4,7 +4,9 @@ import type { RouteLocationAsRelative } from 'vue-router'
 import type { NuxtError } from '#app'
 
 const { error } = defineProps<{
-  /** Error object from Nuxt */
+  /**
+   * Error object from Nuxt
+   */
   error: NuxtError
 }>()
 

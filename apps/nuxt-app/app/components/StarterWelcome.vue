@@ -2,7 +2,9 @@
 const {
   title = 'Welcome to Nuxt!'
 } = defineProps<{
-  /** Page title when StarterWelcome is used */
+  /**
+   * Page title when StarterWelcome is used
+   */
   title?: string
 }>()
 
