@@ -2,6 +2,9 @@ packages:
   - apps/*
   - packages/*
 
+# Avoid letting pnpm manage the runtime by default
+runtime: false
+
 overrides:
   # Remove any reference to @types/eslint due to conflict with ESLint's inbuilt types
   # TODO [webpack>eslint-scope@>=9.1.2]: Remove this override after webpack updates its eslint-scope dependency

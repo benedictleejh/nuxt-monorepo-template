@@ -2,14 +2,16 @@ name: nuxt-monorepo-template
 private: true
 type: module
 
-engines:
-  node: '>= 24'
-
 devEngines:
   packageManager:
     name: pnpm
     version: 11.25.0
     onFail: download
+
+  runtime:
+    name: node
+    version: 24.19.0
+    onFail: warn
 
 scripts:
   prepare: husky
