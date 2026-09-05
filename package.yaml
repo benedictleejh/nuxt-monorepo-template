@@ -31,19 +31,19 @@ scripts:
   build: pnpm --recursive --aggregate-output build
   dev: pnpm --recursive --aggregate-output dev
 
-  typecheck: pnpm --parallel --aggregate-output typecheck
+  typecheck: pnpm --parallel --no-bail --aggregate-output typecheck
 
-  test:unit:watch: pnpm --parallel --aggregate-output test:unit:watch
-  test:unit: pnpm --parallel --aggregate-output test:unit
-  test:e2e:ui: pnpm --parallel --aggregate-output test:e2e:ui
-  test:e2e: pnpm --parallel --aggregate-output test:e2e
+  test:unit:watch: pnpm --parallel --no-bail --aggregate-output test:unit:watch
+  test:unit: pnpm --parallel --no-bail --aggregate-output test:unit
+  test:e2e:ui: pnpm --parallel --no-bail --aggregate-output test:e2e:ui
+  test:e2e: pnpm --parallel --no-bail --aggregate-output test:e2e
 
-  lint: pnpm --parallel --aggregate-output lint
+  lint: pnpm --parallel --no-bail --aggregate-output lint
   lint:es: pnpm --parallel --no-bail --aggregate-output lint:es
-  lint:style: pnpm --parallel --aggregate-output lint:style
-  lint:fix: pnpm --parallel --aggregate-output lint:fix
-  lint:es:fix: pnpm --parallel --aggregate-output lint:es:fix
-  lint:style:fix: pnpm --parallel --aggregate-output lint:style:fix
+  lint:style: pnpm --parallel --no-bail --aggregate-output lint:style
+  lint:fix: pnpm --parallel --no-bail --aggregate-output lint:fix
+  lint:es:fix: pnpm --parallel --no-bail --aggregate-output lint:es:fix
+  lint:style:fix: pnpm --parallel --no-bail --aggregate-output lint:style:fix
 
 devDependencies:
   '@nuxt-monorepo-template/tsconfig': 'workspace:*'
