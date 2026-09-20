@@ -6,10 +6,6 @@ packages:
 runtime: false
 
 overrides:
-  # Remove any reference to @types/eslint due to conflict with ESLint's inbuilt types
-  # TODO [webpack>eslint-scope@>=9.1.2]: Remove this override after webpack updates its eslint-scope dependency
-  '@types/eslint': '-'
-
   # TODO: Remove when the relevant modules upgrade
   '@nuxtjs/stylelint-module>chokidar': 5.0.0
 
@@ -39,7 +35,7 @@ catalogs:
   # Common catalogs to keep consistent dependency versions across apps and packages
   vue:
     vue: 3.5.42
-    vue-router: 5.3.0
+    vue-router: 5.3.1
     vue-tsc: &vue-tools 3.3.11
     '@vue/test-utils': 2.5.0
 
@@ -52,14 +48,14 @@ catalogs:
     '@nuxt/eslint': &nuxt-eslint 1.17.0
     '@nuxt/fonts': 0.14.0
     '@nuxt/image': 2.1.0
-    '@nuxt/test-utils': 4.2.0
+    '@nuxt/test-utils': 4.3.2
     '@nuxtjs/stylelint-module': 5.2.1
-    '@benedictleejh/nuxt-sanitise-html': 1.1.4
+    '@benedictleejh/nuxt-sanitise-html': 1.1.5
 
   eslint:
-    eslint: 10.9.1
+    eslint: 10.10.0
     '@eslint/core': 1.2.1
-    globals: 17.11.0
+    globals: 17.12.0
     eslint-typegen: 2.3.1
 
     '@eslint/js': 10.0.1
@@ -76,39 +72,39 @@ catalogs:
     eslint-plugin-import-x: 4.17.1
     eslint-import-resolver-typescript: 4.4.5
 
-    '@typescript-eslint/eslint-plugin': &typescript-eslint 8.68.0
+    '@typescript-eslint/eslint-plugin': &typescript-eslint 8.70.0
     '@typescript-eslint/parser': *typescript-eslint
 
-    eslint-plugin-vue: 10.10.0
+    eslint-plugin-vue: 10.11.0
     vue-eslint-parser: 10.4.1
     eslint-processor-vue-blocks: 2.0.0
     eslint-plugin-vuejs-accessibility: 2.6.0
 
     eslint-flat-config-utils: 3.2.0
-    '@eslint/config-inspector': 3.3.0
+    '@eslint/config-inspector': 3.4.1
 
   stylelint:
     # For linting stylesheets
-    stylelint: 17.14.1
-    stylelint-define-config: 17.14.0
+    stylelint: 17.15.0
+    stylelint-define-config: 17.15.0
     '@stylelint-types/stylelint-scss': 7.0.1
-    '@stylelint-types/stylelint-stylistic': 5.1.0
+    '@stylelint-types/stylelint-stylistic': 5.3.0
     stylelint-config-standard-scss: 17.0.0
     stylelint-config-standard-vue: 2.0.0
     '@stylistic/stylelint-config': 5.0.0
     # Use SugarSS as a pseudo-sass parser due to postcss-sass not working with media queries
     postcss-sass: npm:sugarss@5.0.1
     postcss-html: 2.0.0
-    stylelint-config-inspector: 2.3.5
+    stylelint-config-inspector: 2.3.7
 
   testing:
     '@testing-library/vue': 8.1.0
     jsdom: 30.0.1
-    vitest: 4.1.11
+    vitest: 5.0.0
 
-    '@playwright/test': 1.62.1
+    '@playwright/test': 1.63.0
     std-env: 4.2.0
-    monocart-reporter: 2.12.6
+    monocart-reporter: 2.13.1
 
   typescript:
     typescript: 6.0.3
@@ -117,28 +113,28 @@ catalogs:
     ts-extras: 1.0.0
 
     # Type utilities
-    type-fest: 5.8.0
+    type-fest: 5.9.0
 
     # Enable use of TypeScript config files in various tools
     jiti: 2.7.0
 
-    '@types/node': 26.4.0 # Allow typechecking of node code as well
+    '@types/node': 26.5.1 # Allow typechecking of node code as well
 
     ts-pattern: 5.9.0 # For pattern matching
 
   styling:
-    sass-embedded: 1.103.1
+    sass-embedded: 1.104.1
 
   commit-checks:
     # For code quality checks on pre-commit
     husky: 9.1.7
-    lint-staged: 17.4.1
+    lint-staged: 17.5.1
 
   package-tools:
-    tsdown: 0.22.14
+    tsdown: 0.23.0
 
   scripts:
-    '@pnpm/workspace.projects-reader': 1101.0.24
+    '@pnpm/workspace.projects-reader': 1101.0.27
 
 
   # App/package-specific dependencies
