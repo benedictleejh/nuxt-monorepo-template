@@ -56,7 +56,7 @@ peerDependencies:
   eslint: catalog:eslint
 
 dependencies:
-  defu: catalog:eslint-config
+  defu: catalog:typescript
 
   globals: catalog:eslint
   '@eslint/core': catalog:eslint
