@@ -1,14 +1,10 @@
-import { defineProject as defineVitestProject } from 'vitest/config'
+import { defineVitestProject } from '@nuxt-monorepo-template/vitest-config'
 
 export default defineVitestProject({
-  resolve: {
-    tsconfigPaths: true
-  },
   test: {
-    name: 'eslint-config-tests',
+    name: 'eslint-config',
     include: [
       'tests/**/*.{test,spec}.ts'
-    ],
-    environment: 'node'
+    ]
   }
 })

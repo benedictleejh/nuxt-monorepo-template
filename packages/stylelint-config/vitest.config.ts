@@ -1,11 +1,10 @@
-import { defineProject as defineVitestProject } from 'vitest/config'
+import { defineVitestProject } from '@nuxt-monorepo-template/vitest-config'
 
 export default defineVitestProject({
   test: {
-    name: 'stylelint-config-tests',
+    name: 'stylelint-config',
     include: [
       'tests/**/*.{test,spec}.ts'
-    ],
-    environment: 'node'
+    ]
   }
 })

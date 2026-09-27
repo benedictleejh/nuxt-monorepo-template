@@ -17,6 +17,14 @@ export const unicorn = () => defineFlatConfigs<EslintFlatConfigItem, EslintConfi
       'unicorn/prefer-import-meta-properties': 'error',
       'unicorn/prefer-export-from': ['error', { checkUsedVariables: false }],
       'unicorn/prevent-abbreviations': 'off',
+      'unicorn/name-replacements': [
+        'error',
+        {
+          replacements: {
+            utils: false
+          }
+        }
+      ],
       'unicorn/no-array-for-each': 'off',
       'unicorn/no-array-reduce': 'off',
       'unicorn/no-empty-file': 'off',

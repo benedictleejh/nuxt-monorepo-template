@@ -41,6 +41,8 @@ devDependencies:
   eslint: catalog:eslint
   '@nuxt-monorepo-template/eslint-config': workspace:*
 
+  '@nuxt-monorepo-template/vitest-config': workspace:*
+
   # Enable use of TypeScript config files in various tools
   jiti: catalog:typescript
 

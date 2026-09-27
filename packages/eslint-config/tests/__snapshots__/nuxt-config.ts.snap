@@ -1918,7 +1918,14 @@
       "unicorn/iteration-fallback-style": "off",
       "unicorn/logical-assignment-operators": "error",
       "unicorn/max-nested-calls": "error",
-      "unicorn/name-replacements": "error",
+      "unicorn/name-replacements": [
+        "error",
+        {
+          "replacements": {
+            "utils": false,
+          },
+        },
+      ],
       "unicorn/new-for-builtins": "error",
       "unicorn/no-abusive-eslint-disable": "error",
       "unicorn/no-accessor-recursion": "error",

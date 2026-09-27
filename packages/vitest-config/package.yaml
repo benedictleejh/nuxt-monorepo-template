@@ -1,13 +1,11 @@
-name: '@nuxt-monorepo-template/stylelint-config'
+name: '@nuxt-monorepo-template/vitest-config'
 type: module
 private: true
 license: MIT
 
-description: Base Stylelint config for nuxt-monorepo-template
+description: Base Vitest config for nuxt-monorepo-template
 
 scripts:
-  inspect: stylelint-config-inspector --config src/index.ts
-
   typecheck: tsc
 
   lint: pnpm lint:es
@@ -30,8 +28,8 @@ module: ./src/index.ts
 
 # Use Node subpath imports to avoid TypeScript path aliases being resolved in the consuming package context
 imports:
-  '#stylelint-config': ./src/index.ts
-  '#stylelint-config/*':
+  '#vitest-config': ./src/index.ts
+  '#vitest-config/*':
     - ./src/*
     - ./src/*.ts
     - ./src/*.tsx
@@ -43,27 +41,24 @@ imports:
     - ./src/*/index.jsx
 
 peerDependencies:
-  stylelint: catalog:stylelint
+  '@nuxt/test-utils': catalog:nuxt
+  vitest: catalog:testing
+
+peerDependenciesMeta:
+  '@nuxt/test-utils':
+    optional: true
 
 dependencies:
-  stylelint-define-config: catalog:stylelint
-  '@stylelint-types/stylelint-scss': catalog:stylelint
-  '@stylelint-types/stylelint-stylistic': catalog:stylelint
-  stylelint-config-standard-scss: catalog:stylelint
-  stylelint-config-standard-vue: catalog:stylelint
-  '@stylistic/stylelint-config': catalog:stylelint
-  postcss-sass: catalog:stylelint
-  postcss-html: catalog:stylelint
+  defu: catalog:typescript
+  type-fest: catalog:typescript
 
 devDependencies:
   '@nuxt-monorepo-template/tsconfig': workspace:*
 
   '@nuxt-monorepo-template/eslint-config': workspace:*
 
-  '@nuxt-monorepo-template/vitest-config': workspace:*
-
   eslint: catalog:eslint
 
-  stylelint-config-inspector: catalog:stylelint
-
   vitest: catalog:testing
+
+  nuxt: catalog:nuxt

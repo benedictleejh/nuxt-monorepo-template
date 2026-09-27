@@ -91,6 +91,8 @@ dependencies:
 devDependencies:
   '@nuxt-monorepo-template/tsconfig': workspace:*
 
+  '@nuxt-monorepo-template/vitest-config': workspace:*
+
   tsdown: catalog:package-tools
 
   eslint-typegen: catalog:eslint
