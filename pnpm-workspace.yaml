@@ -14,6 +14,10 @@ overrides:
   '@babel/helper-create-class-features-plugin>semver': *semver
   '@babel/helper-compilation-targets>semver': *semver
 
+  # TODO [why-is-node-running@>=3.2.3]: Remove when why-is-node-running releases a properly signed version again
+  #                                     See https://github.com/mafintosh/why-is-node-running/issues/90 for details
+  why-is-node-running: 3.2.1
+
 minimumReleaseAge: 10080
 
 trustPolicy: no-downgrade
@@ -72,10 +76,10 @@ catalogs:
     eslint-plugin-import-x: 4.17.1
     eslint-import-resolver-typescript: 4.4.5
 
-    '@typescript-eslint/eslint-plugin': &typescript-eslint 8.70.0
+    '@typescript-eslint/eslint-plugin': &typescript-eslint 8.70.1
     '@typescript-eslint/parser': *typescript-eslint
 
-    eslint-plugin-vue: 10.11.0
+    eslint-plugin-vue: 10.11.1
     vue-eslint-parser: 10.4.1
     eslint-processor-vue-blocks: 2.0.0
     eslint-plugin-vuejs-accessibility: 2.6.0
@@ -99,8 +103,8 @@ catalogs:
 
   testing:
     '@testing-library/vue': 8.1.0
-    jsdom: 30.1.0
-    vitest: 5.0.1
+    jsdom: 30.1.1
+    vitest: 5.0.2
 
     '@playwright/test': 1.63.0
     std-env: 4.2.0
@@ -118,25 +122,25 @@ catalogs:
     # Enable use of TypeScript config files in various tools
     jiti: 2.7.0
 
-    '@types/node': 26.6.2 # Allow typechecking of node code as well
+    '@types/node': 26.6.3 # Allow typechecking of node code as well
 
     ts-pattern: 5.9.0 # For pattern matching
 
     defu: 6.1.7
 
   styling:
-    sass-embedded: 1.104.1
+    sass-embedded: 1.105.0
 
   commit-checks:
     # For code quality checks on pre-commit
     husky: 9.1.7
-    lint-staged: 17.5.1
+    lint-staged: 17.6.0
 
   package-tools:
     tsdown: 0.23.0
 
   scripts:
-    '@pnpm/workspace.projects-reader': 1101.0.27
+    '@pnpm/workspace.projects-reader': 1101.1.0
 
 
   # App/package-specific dependencies

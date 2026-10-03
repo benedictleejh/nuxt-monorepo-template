@@ -66,4 +66,6 @@ devDependencies:
 
   stylelint-config-inspector: catalog:stylelint
 
+  lint-staged: catalog:commit-checks
+
   vitest: catalog:testing

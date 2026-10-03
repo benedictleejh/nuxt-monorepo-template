@@ -99,6 +99,8 @@ devDependencies:
   '@eslint/config-inspector': catalog:eslint
   '@nuxt/eslint-config': catalog:eslint
 
+  lint-staged: catalog:commit-checks
+
   typescript: catalog:typescript
   jiti: catalog:typescript
 

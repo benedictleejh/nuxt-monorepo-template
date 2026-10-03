@@ -1,17 +1,17 @@
-import type { Configuration } from 'lint-staged'
+import { defineConfig } from 'lint-staged/config'
 
 import manifest from './package.json' with { type: 'json' }
 
 const { name } = manifest
 
-export default {
-  '*.ts': stagedFiles => [
+export default defineConfig({
+  '*.{ts,tsx,js,jsx,vue}': stagedFiles => [
     `pnpm --filter ${name} lint:es ${stagedFiles.join(' ')}`
   ],
-  '*.{*,1}': () => [
-    `pnpm --filter ${name} typecheck`
-  ],
-  '*.{*,2}': () => [
-    `pnpm --filter ${name} test:unit`
+  '*.*': () => [
+    [
+      `pnpm --filter ${name} typecheck`,
+      `pnpm --filter ${name} test:unit`
+    ]
   ]
-} satisfies Configuration
+})

@@ -61,4 +61,6 @@ devDependencies:
 
   vitest: catalog:testing
 
+  lint-staged: catalog:commit-checks
+
   nuxt: catalog:nuxt
